@@ -1,0 +1,7 @@
+{
+  "layered-image":
+  {
+    "background" : "$media:weave_background",
+    "foreground" : "$media:weave_foreground"
+  }
+}

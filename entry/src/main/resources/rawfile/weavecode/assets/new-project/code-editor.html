@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta name="robots" content="noindex">
+    <title>Extension Sidebar Dashboard</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="assets/css/style.css?uiVersion=20261112.3"/>
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="../../thirdparty/fontawesome/css/all.min.css">
+    <script src="assets/js/weave.js"></script>
+    <script>
+        // The app opens directly into the workspace; first-run hint cards are intentionally disabled.
+        try {
+            if (window.PhStore) {
+                window.PhStore.setItem("notification.defaultProject.Shown", "true");
+            }
+        } catch (error) {
+            console.debug("Unable to persist the disabled first-run hint state", error);
+        }
+    </script>
+    <script src="assets/js/code-editor.js?uiVersion=20261112.1"></script>
+    <script src="assets/js/account-center.js?uiVersion=20261112.3"></script>
+    <script src="assets/js/home-project-templates.js"></script>
+    <script src="../../thirdparty/floating-ui.core.umd.min.js"></script>
+    <script src="../../thirdparty/floating-ui.dom.umd.min.js"></script>
+    <script src="assets/js/notification-ui.js"></script>
+    <style>
+        #weave-pro-title {
+            background: linear-gradient(
+                    45deg,
+                    #ff8c42,   /* deep orange */
+                    #ffa500,   /* bright orange */
+                    #ffcc70,   /* golden yellow */
+                    #ffd700    /* rich gold */
+            );
+            background-clip: text;
+            -webkit-background-clip: text; /* Chrome, Safari */
+            color: transparent;            /* works in Firefox */
+            -webkit-text-fill-color: transparent; /* Chrome, Safari */
+            display: inline-block;
+        }
+    </style>
+</head>
+<body id="top" onload="configureStartupScreen(); init(); initCodeEditor(); initHomeProjectTemplates();">
+<div class="code-editor-card">
+    <div class="editor-card-top d-flex align-items-center justify-content-between">
+        <div class="editor-left d-flex align-items-center">
+            <div class="editor-image">
+                <img src="images/logo.png" alt="image"/>
+            </div>
+            <div class="editor-name">
+                <div class="editor-title-row">
+                    <h4 class="localize weave-free-title">{{APP_TITLE}}</h4>
+                    <span id="weave-pro-title" class="forced-hidden">
+                        <span class="pro-plan-name">VIP</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="weave-account" aria-live="polite">
+            <button id="weaveAccountStatus" class="weave-account-identity forced-hidden" type="button"
+                    data-weave-i18n-aria="WEAVE_ACCOUNT_CENTER_TITLE" data-weave-i18n-fallback="Account center"
+                    aria-label="Account center"></button>
+            <button id="weaveAccountLogin" type="button" data-weave-i18n="WEAVE_ACCOUNT_LOGIN" data-weave-i18n-fallback="Sign in">Sign in</button>
+        </div>
+        <div class="editor-right">
+            <button id="closeDialogueButton" class="close-btn">
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16.1616 5.70972L5.70996 16.1613" stroke="white" stroke-width="2" stroke-linecap="round"
+                          stroke-linejoin="round"/>
+                    <path d="M5.70996 5.70972L16.1616 16.1613" stroke="white" stroke-width="2" stroke-linecap="round"
+                          stroke-linejoin="round"/>
+                </svg>
+
+            </button>
+        </div>
+    </div>
+    <div class="editor-project-content d-flex justify-content-between">
+        <div class="project-content-left">
+            <div id="recentProjectsContainer" class="recent-project-card">
+                <div class="project-history-column">
+                    <div class="recent-head">
+                        <h5 class="localize">{{CMD_RECENT_PROJECTS}}</h5>
+                    </div>
+                    <ul id="recentProjectList" class="recent-project-list">
+                    </ul>
+                    <div id="noRecentProjects" class="project-list-empty localize forced-hidden">
+                        {{XINGZHI_NO_RECENT_PROJECTS}}
+                    </div>
+                </div>
+                <div class="project-history-divider" aria-hidden="true"></div>
+                <div class="project-history-column">
+                    <div class="recent-head">
+                        <h5 class="localize">{{XINGZHI_OPEN_PROJECTS}}</h5>
+                    </div>
+                    <ul id="openProjectList" class="recent-project-list open-project-list">
+                    </ul>
+                    <div id="noOpenProjects" class="project-list-empty localize forced-hidden">
+                        {{XINGZHI_NO_OPEN_PROJECTS}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="project-content-right">
+                <div id="project-items-container" class="project-content-inner text-center">
+                <div class="project-head d-flex align-items-center justify-content-between">
+                    <h4 class="tab-title mb-0 localize">{{START_PROJECT}}</h4>
+                </div>
+                <ul class="project-type-list d-flex flex-wrap mb-0 pb-0 border-bottom-0">
+                    <li>
+                        <a id="defaultProjectButton" href="#" class="tabable" tabindex="1">
+                            <img src="images/logo.png" alt="image">
+                            <span class="localize"> {{WEAVE_DEFAULT_PROJECT}}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a id="openFolderBtn" href="#" class="tabable" tabindex="2">
+                            <img src="images/tab-img6.png" alt="image">
+                            <span class="localize">{{CMD_OPEN_FOLDER}}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a id="helloWorldBtn" href="#" class="tabable" tabindex="3">
+                            <i class="fa-regular fa-comment-dots project-template-icon" aria-hidden="true"></i>
+                            <span>Hello World</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a id="exploreBtn" href="#" class="tabable" tabindex="4">
+                            <img src="images/video-game-gamepad.svg?uiVersion=20261021.4" alt="image">
+                            <span class="localize">{{EXPLORE}}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a id="newGitHubProject" href="#" class="tabable" tabindex="5">
+                            <img src="images/git.svg" alt="image">
+                            <span class="localize">{{GIT_PROJECT}}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a id="homePageBtn" href="#" class="tabable" tabindex="6">
+                            <i class="fa-regular fa-window-maximize project-template-icon" aria-hidden="true"></i>
+                            <span class="localize">{{WEBPAGE_HOME_PAGE}}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a id="blogPageBtn" href="#" class="tabable" tabindex="7">
+                            <i class="fa-regular fa-newspaper project-template-icon" aria-hidden="true"></i>
+                            <span class="localize">{{WEBPAGE_BLOG}}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a id="dashboardBtn" href="#" class="tabable" tabindex="8">
+                            <i class="fa-regular fa-chart-bar project-template-icon" aria-hidden="true"></i>
+                            <span class="localize">{{WEBPAGE_DASHBOARD}}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a id="bootstrapExamplesBtn" href="#" class="tabable" tabindex="9">
+                            <i class="fa-regular fa-square project-template-icon bootstrap-outline-icon" aria-hidden="true"></i>
+                            <span class="localize">{{WEBPAGE_BOOTSTRAP_EXAMPLES}}</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="settings-icon dropdown" style="text-align: right; font-size: 15px;">
+        <div class="dropdown-content">
+            <div id="changeLanguage"><span style="visibility: hidden">✔ </span><span href="#" class="localize">{{CMD_SWITCH_LANGUAGE}}</span></div>
+            <div id="showAbout"><span style="visibility: hidden">✔ </span><span href="#" class="localize">{{CMD_ABOUT}}</span></div>
+        </div>
+        <div style="display: flex; justify-content: end">
+            <div class="dropbtn"><i class="fa-solid fa-gear"></i></div>
+        </div>
+    </div>
+    <!-- focus guard in the end of the form -->
+    <div class="focusguard" id="focusguard-2" tabindex="1000"></div>
+    <!-- Nothing underneath this comment -->
+</div>
+
+<div id="weaveAccountDialog" class="weave-confirm-backdrop forced-hidden" role="presentation">
+    <section class="weave-account-dialog" role="dialog" aria-modal="true" aria-labelledby="weaveAccountDialogTitle">
+        <h3 id="weaveAccountDialogTitle" data-weave-i18n="WEAVE_ACCOUNT_LOGIN_TITLE" data-weave-i18n-fallback="Sign in to Weave Code">Sign in to Weave Code</h3>
+        <form id="weaveLoginForm" class="weave-account-form">
+            <label><span data-weave-i18n="WEAVE_ACCOUNT_PHONE" data-weave-i18n-fallback="Mobile number">Mobile number</span><input id="weaveLoginPhone" type="tel" inputmode="numeric" autocomplete="username" maxlength="11" required></label>
+            <label><span data-weave-i18n="WEAVE_ACCOUNT_PASSWORD" data-weave-i18n-fallback="Password">Password</span>
+                <span class="weave-password-field">
+                    <input id="weaveLoginPassword" type="password" autocomplete="current-password" minlength="8" maxlength="128" required>
+                    <button class="weave-password-toggle" type="button" data-password-target="weaveLoginPassword"
+                            data-weave-i18n-aria="WEAVE_ACCOUNT_SHOW_PASSWORD" data-weave-i18n-title="WEAVE_ACCOUNT_SHOW_PASSWORD"
+                            data-weave-i18n-fallback="Show password" aria-label="Show password" aria-pressed="false" title="Show password">
+                        <i class="fa-solid fa-eye-slash" aria-hidden="true"></i>
+                    </button>
+                </span>
+            </label>
+            <label class="weave-privacy-consent">
+                <input id="weaveLoginPrivacy" type="checkbox" required>
+                <span><span data-weave-i18n="WEAVE_ACCOUNT_PRIVACY_PREFIX" data-weave-i18n-fallback="By checking this box, you agree to the ">By checking this box, you agree to the </span><a class="weave-privacy-link" href="https://privacypolicyweavecode.dhuzcs.com/" data-weave-i18n="CMD_PRIVACY_POLICY" data-weave-i18n-fallback="Privacy Policy">Privacy Policy</a></span>
+            </label>
+            <button class="weave-account-primary" type="submit" data-weave-i18n="WEAVE_ACCOUNT_LOGIN" data-weave-i18n-fallback="Sign in">Sign in</button>
+            <div class="weave-account-secondary-actions">
+                <button type="button" data-account-panel="register" data-weave-i18n="WEAVE_ACCOUNT_REGISTER_ACCOUNT" data-weave-i18n-fallback="Register account">Register account</button>
+                <button type="button" data-account-panel="reset" data-weave-i18n="WEAVE_ACCOUNT_FORGOT_PASSWORD" data-weave-i18n-fallback="Forgot password">Forgot password</button>
+            </div>
+        </form>
+        <form id="weaveRegisterForm" class="weave-account-form forced-hidden">
+            <label><span data-weave-i18n="WEAVE_ACCOUNT_PHONE" data-weave-i18n-fallback="Mobile number">Mobile number</span><input id="weaveRegisterPhone" type="tel" inputmode="numeric" autocomplete="tel" maxlength="11" required></label>
+            <label><span data-weave-i18n="WEAVE_ACCOUNT_EMAIL_OPTIONAL" data-weave-i18n-fallback="Email (optional)">Email (optional)</span><input id="weaveRegisterEmail" type="email" autocomplete="email" maxlength="254"></label>
+            <label><span data-weave-i18n="WEAVE_ACCOUNT_PASSWORD" data-weave-i18n-fallback="Password">Password</span>
+                <span class="weave-password-field">
+                    <input id="weaveRegisterPassword" type="password" autocomplete="new-password" minlength="8" maxlength="128" required>
+                    <button class="weave-password-toggle" type="button" data-password-target="weaveRegisterPassword"
+                            data-weave-i18n-aria="WEAVE_ACCOUNT_SHOW_PASSWORD" data-weave-i18n-title="WEAVE_ACCOUNT_SHOW_PASSWORD"
+                            data-weave-i18n-fallback="Show password" aria-label="Show password" aria-pressed="false" title="Show password">
+                        <i class="fa-solid fa-eye-slash" aria-hidden="true"></i>
+                    </button>
+                </span>
+            </label>
+            <label><span data-weave-i18n="WEAVE_ACCOUNT_CONFIRM_PASSWORD" data-weave-i18n-fallback="Confirm password">Confirm password</span>
+                <span class="weave-password-field">
+                    <input id="weaveRegisterPasswordConfirm" type="password" autocomplete="new-password" minlength="8" maxlength="128" required>
+                    <button class="weave-password-toggle" type="button" data-password-target="weaveRegisterPasswordConfirm"
+                            data-weave-i18n-aria="WEAVE_ACCOUNT_SHOW_PASSWORD" data-weave-i18n-title="WEAVE_ACCOUNT_SHOW_PASSWORD"
+                            data-weave-i18n-fallback="Show password" aria-label="Show password" aria-pressed="false" title="Show password">
+                        <i class="fa-solid fa-eye-slash" aria-hidden="true"></i>
+                    </button>
+                </span>
+            </label>
+            <div class="weave-code-row">
+                <label><span data-weave-i18n="WEAVE_ACCOUNT_VERIFICATION_CODE" data-weave-i18n-fallback="Verification code">Verification code</span><input id="weaveRegisterCode" inputmode="numeric" maxlength="8" required></label>
+                <button id="weaveRegisterSendCode" type="button" data-weave-i18n="WEAVE_ACCOUNT_GET_CODE" data-weave-i18n-fallback="Get verification code">Get verification code</button>
+            </div>
+            <label class="weave-privacy-consent">
+                <input id="weaveRegisterPrivacy" type="checkbox" required>
+                <span><span data-weave-i18n="WEAVE_ACCOUNT_PRIVACY_PREFIX" data-weave-i18n-fallback="By checking this box, you agree to the ">By checking this box, you agree to the </span><a class="weave-privacy-link" href="https://privacypolicyweavecode.dhuzcs.com/" data-weave-i18n="CMD_PRIVACY_POLICY" data-weave-i18n-fallback="Privacy Policy">Privacy Policy</a></span>
+            </label>
+            <button class="weave-account-primary" type="submit" data-weave-i18n="WEAVE_ACCOUNT_REGISTER" data-weave-i18n-fallback="Register">Register</button>
+            <button type="button" data-account-panel="login" data-weave-i18n="WEAVE_ACCOUNT_BACK_TO_LOGIN" data-weave-i18n-fallback="Back to sign in">Back to sign in</button>
+        </form>
+        <form id="weaveResetForm" class="weave-account-form forced-hidden">
+            <label><span data-weave-i18n="WEAVE_ACCOUNT_PHONE" data-weave-i18n-fallback="Mobile number">Mobile number</span><input id="weaveResetPhone" type="tel" inputmode="numeric" autocomplete="tel" maxlength="11" required></label>
+            <label><span data-weave-i18n="WEAVE_ACCOUNT_NEW_PASSWORD" data-weave-i18n-fallback="New password">New password</span>
+                <span class="weave-password-field">
+                    <input id="weaveResetPassword" type="password" autocomplete="new-password" minlength="8" maxlength="128" required>
+                    <button class="weave-password-toggle" type="button" data-password-target="weaveResetPassword"
+                            data-weave-i18n-aria="WEAVE_ACCOUNT_SHOW_PASSWORD" data-weave-i18n-title="WEAVE_ACCOUNT_SHOW_PASSWORD"
+                            data-weave-i18n-fallback="Show password" aria-label="Show password" aria-pressed="false" title="Show password">
+                        <i class="fa-solid fa-eye-slash" aria-hidden="true"></i>
+                    </button>
+                </span>
+            </label>
+            <label><span data-weave-i18n="WEAVE_ACCOUNT_CONFIRM_NEW_PASSWORD" data-weave-i18n-fallback="Confirm new password">Confirm new password</span>
+                <span class="weave-password-field">
+                    <input id="weaveResetPasswordConfirm" type="password" autocomplete="new-password" minlength="8" maxlength="128" required>
+                    <button class="weave-password-toggle" type="button" data-password-target="weaveResetPasswordConfirm"
+                            data-weave-i18n-aria="WEAVE_ACCOUNT_SHOW_PASSWORD" data-weave-i18n-title="WEAVE_ACCOUNT_SHOW_PASSWORD"
+                            data-weave-i18n-fallback="Show password" aria-label="Show password" aria-pressed="false" title="Show password">
+                        <i class="fa-solid fa-eye-slash" aria-hidden="true"></i>
+                    </button>
+                </span>
+            </label>
+            <div class="weave-code-row">
+                <label><span data-weave-i18n="WEAVE_ACCOUNT_VERIFICATION_CODE" data-weave-i18n-fallback="Verification code">Verification code</span><input id="weaveResetCode" inputmode="numeric" maxlength="8" required></label>
+                <button id="weaveResetSendCode" type="button" data-weave-i18n="WEAVE_ACCOUNT_GET_CODE" data-weave-i18n-fallback="Get verification code">Get verification code</button>
+            </div>
+            <button class="weave-account-primary" type="submit" data-weave-i18n="WEAVE_ACCOUNT_RESET_PASSWORD" data-weave-i18n-fallback="Reset password">Reset password</button>
+            <button type="button" data-account-panel="login" data-weave-i18n="WEAVE_ACCOUNT_BACK_TO_LOGIN" data-weave-i18n-fallback="Back to sign in">Back to sign in</button>
+        </form>
+        <section id="weaveAccountCenter" class="weave-account-center forced-hidden" aria-label="Account information">
+            <section class="weave-account-section weave-account-summary-section">
+                <div class="weave-account-section-heading">
+                    <div>
+                        <strong data-account-i18n="WEAVE_ACCOUNT_INFO_TITLE">Account information</strong>
+                    </div>
+                </div>
+                <div class="weave-account-hero">
+                    <div class="weave-account-avatar" aria-hidden="true"><i class="fa-solid fa-user"></i></div>
+                    <div class="weave-account-hero-copy">
+                        <span class="weave-account-eyebrow">WEAVE CODE ACCOUNT</span>
+                        <strong id="weaveAccountCenterName">Weave Code user</strong>
+                    </div>
+                </div>
+                <div class="weave-account-details">
+                    <div class="weave-account-detail-row">
+                        <span data-account-i18n="WEAVE_ACCOUNT_PHONE_LABEL">Mobile number</span>
+                        <strong id="weaveAccountCenterPhone">—</strong>
+                    </div>
+                    <div class="weave-account-detail-row">
+                        <span data-account-i18n="WEAVE_ACCOUNT_EMAIL_LABEL">Email</span>
+                        <strong id="weaveAccountCenterEmail">Not set</strong>
+                    </div>
+                </div>
+            </section>
+
+            <section class="weave-account-section weave-membership-section">
+                <div class="weave-account-section-heading weave-membership-heading">
+                    <div>
+                        <strong data-account-i18n="WEAVE_MEMBERSHIP_TITLE">Membership benefits</strong>
+                        <span id="weaveAccountCenterMembership" class="weave-membership-badge">Standard account</span>
+                    </div>
+                </div>
+                <div class="weave-account-info-grid">
+                    <div class="weave-account-info-item">
+                        <span data-account-i18n="WEAVE_MEMBERSHIP_PLAN_LABEL">Current plan</span>
+                        <strong id="weaveAccountCenterPlan">Standard user</strong>
+                    </div>
+                    <div class="weave-account-info-item">
+                        <span data-account-i18n="WEAVE_MEMBERSHIP_EXPIRY_LABEL">Valid until</span>
+                        <strong id="weaveAccountCenterExpiry">—</strong>
+                    </div>
+                </div>
+                <div class="weave-vip-benefits">
+                    <strong data-account-i18n="WEAVE_MEMBERSHIP_BENEFITS_TITLE">VIP-only features</strong>
+                    <ul>
+                        <li><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i><span data-account-i18n="WEAVE_MEMBERSHIP_BENEFIT_VISUAL_EDIT">Live visual web editing</span></li>
+                        <li><i class="fa-solid fa-ruler-combined" aria-hidden="true"></i><span data-account-i18n="WEAVE_MEMBERSHIP_BENEFIT_LAYOUT">Element layout and measurement inspection</span></li>
+                        <li><i class="fa-brands fa-markdown" aria-hidden="true"></i><span data-account-i18n="WEAVE_MEMBERSHIP_BENEFIT_MARKDOWN">Rich Markdown editing and export</span></li>
+                        <li><i class="fa-solid fa-code" aria-hidden="true"></i><span data-account-i18n="WEAVE_MEMBERSHIP_BENEFIT_CODE_INTELLIGENCE">Enhanced code intelligence and diagnostics</span></li>
+                    </ul>
+                </div>
+                <p id="weaveAccountCenterHint" class="weave-account-membership-hint"></p>
+                <div class="weave-account-center-actions weave-membership-actions">
+                    <button id="weaveAccountManageSubscription" class="weave-account-action-card forced-hidden" type="button">
+                        <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                        <span><strong data-account-i18n="WEAVE_MEMBERSHIP_MANAGE_TITLE">Manage subscription with Huawei</strong><small data-account-i18n="WEAVE_MEMBERSHIP_MANAGE_DESC">Open Huawei subscription management to change or cancel auto-renewal</small></span>
+                    </button>
+                    <button id="weaveAccountVipAction" class="weave-account-action-card" type="button">
+                        <i class="fa-solid fa-crown" aria-hidden="true"></i>
+                        <span><strong data-account-i18n="WEAVE_MEMBERSHIP_VIEW_PLANS">View VIP plans</strong><small data-account-i18n="WEAVE_MEMBERSHIP_VIEW_PLANS_DESC">Choose monthly VIP or a one-time lifetime purchase</small></span>
+                    </button>
+                </div>
+            </section>
+
+            <section class="weave-account-section weave-account-management-section">
+                <div class="weave-account-section-heading">
+                    <div>
+                        <strong data-account-i18n="WEAVE_ACCOUNT_MANAGEMENT_TITLE">Account management</strong>
+                    </div>
+                </div>
+                <div class="weave-account-center-actions">
+                    <button id="weaveAccountChangePassword" class="weave-account-action-card" type="button">
+                        <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+                        <span><strong data-account-i18n="WEAVE_ACCOUNT_CHANGE_PASSWORD">Change password</strong></span>
+                    </button>
+                    <button id="weaveAccountLogout" class="weave-account-action-card weave-account-logout-action forced-hidden" type="button">
+                        <i class="fa-solid fa-arrow-right-from-bracket" aria-hidden="true"></i>
+                        <span><strong data-account-i18n="WEAVE_ACCOUNT_LOGOUT_ACCOUNT">Sign out account</strong></span>
+                    </button>
+                </div>
+            </section>
+            <form id="weaveChangePasswordForm" class="weave-account-form weave-change-password-form forced-hidden">
+                <div class="weave-change-password-heading">
+                    <button id="weaveChangePasswordBack" type="button" data-account-i18n-aria="WEAVE_ACCOUNT_BACK_TO_SUMMARY" aria-label="Back to account center"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i></button>
+                    <div><strong data-account-i18n="WEAVE_ACCOUNT_CHANGE_PASSWORD">Change password</strong><span data-account-i18n="WEAVE_ACCOUNT_PASSWORD_MINIMUM">The new password must be at least 8 characters</span></div>
+                </div>
+                <label><span data-account-i18n="WEAVE_ACCOUNT_CURRENT_PASSWORD">Current password</span>
+                    <span class="weave-password-field">
+                        <input id="weaveCurrentPassword" type="password" autocomplete="current-password" minlength="8" maxlength="128" required>
+                        <button class="weave-password-toggle" type="button" data-password-target="weaveCurrentPassword" data-account-i18n-aria="WEAVE_ACCOUNT_SHOW_PASSWORD_CENTER" data-account-i18n-title="WEAVE_ACCOUNT_SHOW_PASSWORD_CENTER" aria-label="Show password" aria-pressed="false" title="Show password"><i class="fa-solid fa-eye-slash" aria-hidden="true"></i></button>
+                    </span>
+                </label>
+                <label><span data-account-i18n="WEAVE_ACCOUNT_NEW_PASSWORD">New password</span>
+                    <span class="weave-password-field">
+                        <input id="weaveNewPassword" type="password" autocomplete="new-password" minlength="8" maxlength="128" required>
+                        <button class="weave-password-toggle" type="button" data-password-target="weaveNewPassword" data-account-i18n-aria="WEAVE_ACCOUNT_SHOW_PASSWORD_CENTER" data-account-i18n-title="WEAVE_ACCOUNT_SHOW_PASSWORD_CENTER" aria-label="Show password" aria-pressed="false" title="Show password"><i class="fa-solid fa-eye-slash" aria-hidden="true"></i></button>
+                    </span>
+                </label>
+                <label><span data-account-i18n="WEAVE_ACCOUNT_CONFIRM_NEW_PASSWORD">Confirm new password</span>
+                    <span class="weave-password-field">
+                        <input id="weaveNewPasswordConfirm" type="password" autocomplete="new-password" minlength="8" maxlength="128" required>
+                        <button class="weave-password-toggle" type="button" data-password-target="weaveNewPasswordConfirm" data-account-i18n-aria="WEAVE_ACCOUNT_SHOW_PASSWORD_CENTER" data-account-i18n-title="WEAVE_ACCOUNT_SHOW_PASSWORD_CENTER" aria-label="Show password" aria-pressed="false" title="Show password"><i class="fa-solid fa-eye-slash" aria-hidden="true"></i></button>
+                    </span>
+                </label>
+                <button class="weave-account-primary" type="submit" data-account-i18n="WEAVE_ACCOUNT_CONFIRM_CHANGE_PASSWORD">Change password</button>
+            </form>
+        </section>
+        <p id="weaveAccountFeedback" class="weave-account-feedback" aria-live="polite"></p>
+        <button id="weaveAccountDialogCancel" class="weave-account-cancel" type="button" data-weave-i18n="CANCEL" data-weave-i18n-fallback="Cancel">Cancel</button>
+    </section>
+</div>
+
+<div id="weaveLogoutConfirm" class="weave-confirm-backdrop forced-hidden" role="presentation">
+    <section class="weave-confirm-dialog" role="dialog" aria-modal="true"
+             aria-labelledby="weaveLogoutConfirmTitle">
+        <h3 id="weaveLogoutConfirmTitle" data-weave-i18n="WEAVE_ACCOUNT_LOGOUT_CONFIRM_TITLE" data-weave-i18n-fallback="Sign out of this account?">Sign out of this account?</h3>
+        <div class="weave-confirm-actions">
+            <button id="weaveLogoutConfirmButton" class="weave-confirm-primary" type="button" data-weave-i18n="WEAVE_ACCOUNT_LOGOUT_CONFIRM" data-weave-i18n-fallback="Sign out">Sign out</button>
+            <button id="weaveLogoutCancelButton" type="button" data-weave-i18n="CANCEL" data-weave-i18n-fallback="Cancel">Cancel</button>
+        </div>
+    </section>
+</div>
+
+<!-- Javascript -->
+<script src="assets/thirdparty/jquery.min.js"></script>
+<script src="assets/thirdparty/Popper.js"></script>
+<script src="assets/thirdparty/bootstrap.min.js"></script>
+<script src="assets/thirdparty/jquery.easing.min.js"></script>
+<script src="assets/thirdparty/main.js"></script>
+<script src="assets/thirdparty/perfect-scrollbar.jquery.min.js"></script>
+<script src="assets/thirdparty/jquery.tabbable.min.js"></script>
+<!-- Appear js -->
+<script src="assets/thirdparty/appear.min.js"></script>
+</body>
+</html>

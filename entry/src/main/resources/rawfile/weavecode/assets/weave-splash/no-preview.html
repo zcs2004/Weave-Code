@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Weave Live Preview</title>
+  <link rel="stylesheet" href="styles.css">
+  <meta name="robots" content="noindex">
+  <script>
+    function translate() {
+      const urlParams = new URLSearchParams(window.location.search || "");
+      if(urlParams.get('jsonInput')){
+        let input = JSON.parse(decodeURIComponent(urlParams.get('jsonInput')));
+        document.getElementById("heading").textContent = input.heading;
+        document.getElementById("details").textContent = input.details;
+      }
+    }
+  </script>
+</head>
+
+<body class="no-preview-page" onload="translate()">
+<main class="weave-loader-background">
+  <div class="weave-loader-stars" aria-hidden="true"></div>
+  <div class="weave-loader-orbit weave-loader-orbit-one" aria-hidden="true"></div>
+  <div class="weave-loader-orbit weave-loader-orbit-two" aria-hidden="true"></div>
+  <div id="mainDiv">
+    <div id="MainText">
+      <h1 id="heading">Nothing to preview!</h1>
+      <p id="details">Please select an HTML file to preview</p>
+    </div>
+  </div>
+  <footer class="weave-loader-footer" aria-hidden="true"><i></i></footer>
+</main>
+</body>
+</html>

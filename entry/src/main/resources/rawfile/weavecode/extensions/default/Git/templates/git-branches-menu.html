@@ -1,0 +1,23 @@
+<ul id="git-branch-dropdown" class="dropdown-menu" tabindex="-1">
+    <li>
+        <a class="git-branch-new">
+            <span>{{Strings.CREATE_NEW_BRANCH}}</span>
+        </a>
+    </li>
+
+    {{#branchList.length}}
+    <li class="divider"></li>
+    {{/branchList.length}}
+
+    {{#branchList}}
+    <li>
+        <a class="git-branch-link" data-branch="{{name}}">
+            <span class="switch-branch">{{name}}</span>
+            <span class="merge-branch" title="{{Strings.MERGE_BRANCH}}"><i class="octicon octicon-git-merge"></i></span>
+            {{#canDelete}}
+            <span class="trash-icon" title="{{Strings.DELETE_LOCAL_BRANCH}}"><i class="fas fa-trash"></i></span>
+            {{/canDelete}}
+        </a>
+    </li>
+    {{/branchList}}
+</ul>

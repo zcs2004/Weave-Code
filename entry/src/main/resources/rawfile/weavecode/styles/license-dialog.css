@@ -1,0 +1,28 @@
+.license-dialog {
+    width: min(820px, calc(100vw - 48px));
+    max-width: 820px;
+}
+
+.license-dialog .license-dialog-body {
+    box-sizing: border-box;
+    max-height: min(68vh, 720px);
+    padding: 16px 20px;
+    overflow: auto;
+}
+
+.license-dialog .license-text {
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    padding: 16px;
+    border: 1px solid rgba(127, 127, 127, .28);
+    border-radius: 6px;
+    color: inherit;
+    background: rgba(127, 127, 127, .08);
+    font-family: "SourceCodePro", "SFMono-Regular", Consolas, monospace;
+    font-size: 12px;
+    line-height: 1.55;
+    overflow-wrap: anywhere;
+    user-select: text;
+    white-space: pre-wrap;
+}

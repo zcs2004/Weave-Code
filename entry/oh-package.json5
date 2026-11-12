@@ -1,0 +1,13 @@
+{
+  "name": "entry",
+  "version": "1.0.2",
+  "description": "Weave Code HarmonyOS application module",
+  "main": "",
+  "author": "",
+  "license": "AGPL-3.0-or-later",
+  "dependencies": {
+    "@hw-agconnect/auth": "1.1.0"
+  },
+  "devDependencies": {},
+  "dynamicDependencies": {}
+}

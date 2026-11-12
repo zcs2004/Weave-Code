@@ -1,0 +1,40 @@
+{
+    "config": {
+        "app_title": "织码 Weave Code",
+        "app_name_about": "织码 Weave Code",
+        "main_pro_plan": "织码 VIP",
+        "main_pro_plan_short": "VIP",
+        "ai_brand_name": "Cloud Code",
+        "about_icon": "styles/images/weave-code-icon.png",
+        "how_to_use_url": "https://weavecode.dhuzcs.com/guide/",
+        "docs_url": "https://weavecode.dhuzcs.com/guide/",
+        "feedback_url": "https://weavecode.dhuzcs.com/feedback/",
+        "activity_url": "https://weavecode.dhuzcs.com/activity",
+        "homepage_url": "https://weavecode.dhuzcs.com/index/",
+        "privacy_policy_url": "https://privacypolicyweavecode.dhuzcs.com/",
+        "update_download_page": "https://weavecode.dhuzcs.com/index/",
+        "extension_registry": "https://dhuzcs.local/__xingzhi_extension_proxy/registry.json",
+        "extension_registry_version": "https://dhuzcs.local/__xingzhi_extension_proxy/registry_version.json",
+        "extension_registry_popularity": "https://dhuzcs.local/__xingzhi_extension_proxy/popularity.json",
+        "extension_url": "https://dhuzcs.local/__xingzhi_extension_proxy/extensions/",
+        "extensionTakedownURL": "extension_takedown.json",
+        "lsp_server_pins": {
+            "intelephense": "1.18.5",
+            "pyrefly": "1.2.0",
+            "ruff": "0.16.5"
+        },
+        "linting.enabled_by_default": true,
+        "build_timestamp": "2026-10-20T08:24:42.936Z",
+        "environment": "production",
+        "buildtype": "production",
+        "bugsnagEnv": "production"
+    },
+    "name": "Weave Code",
+    "version": "1.0.2",
+    "apiVersion": "1.13.0",
+    "licenses": [
+        {
+            "type": "AGPL-3.0-or-later"
+        }
+    ]
+}

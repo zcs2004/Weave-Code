@@ -1,0 +1,24 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "织码网页开发环境"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "织码 HarmonyOS 主界面"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "Weave Code"
+    },
+    {
+      "name": "permission_read_pasteboard_reason",
+      "value": "用于从系统剪贴板粘贴文本和代码。"
+    },
+    {
+      "name": "permission_write_imagevideo_reason",
+      "value": "用于将生成或编辑的图片、视频保存到系统图库。"
+    }
+  ]
+}

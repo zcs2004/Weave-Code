@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<!--
+ * GNU AGPL-3.0 License
+ *
+ * Copyright (c) 2021 - present core.ai . All rights reserved.
+ *
+ * This program is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU Affero General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License
+ * for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see https://opensource.org/licenses/AGPL-3.0.
+-->
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Weave Code data migration helper</title>
+</head>
+<body>
+<!--
+    Migration helper, served from the origin that is being retired.
+
+    web.wecode.dev embeds this page in a hidden iframe to read the projects, preferences and
+    extensions that live in this origin's IndexedDB and cannot otherwise cross the origin boundary.
+    This works because wecode.dev and web.wecode.dev are the same site (eTLD+1), so the frame is
+    same-site rather than third party and browsers do not partition its storage.
+
+    SECURITY: this page hands the user's entire browser filesystem to whoever embeds it, and the
+    origin check below is the only thing standing in the way. Exact string matching only, on every
+    single message, and replies always go to the validated origin, never "*". Reads are confined to
+    the three roots in ALLOWED_ROOTS.
+
+    It deliberately does not boot Weave. virtualfs.js is a self contained IIFE that gives us
+    window.fs over the same Filer IndexedDB, which is all we need.
+
+    Files are streamed one at a time rather than zipped per folder. IndexedDB costs roughly 10ms per
+    file whatever we do, so an intermediate zip only adds a read/encode/decode pass on top of that
+    floor, and measured on 300 files it produced an archive slightly LARGER than the input because
+    JSZip stores uncompressed. Streaming also gives the receiver an exact per file progress count and
+    keeps peak memory at one file instead of one whole folder.
+-->
+<script src="weave/virtualfs.js"></script>
+<script>
+    (function () {
+        const TRUSTED_PARENT_ORIGINS = [
+            "https://web.wecode.dev",
+            "http://localhost:8000",
+            "http://127.0.0.1:8000",
+            "http://localhost:5000",
+            "http://127.0.0.1:5000"
+        ];
+
+        const PROJECTS_ROOT = "/fs/local";
+        const APP_ROOT = "/fs/app";
+        const EXTENSIONS_USER = APP_ROOT + "/extensions/user";
+        const EXTENSIONS_DISABLED = APP_ROOT + "/extensions/disabled";
+        const PREFS_FILE = APP_ROOT + "/wecode.json";
+
+        // Only these roots may ever be zipped and handed out. Anything else, including /mnt (which
+        // holds real disc folders the user picked), is refused.
+        const ALLOWED_ROOTS = [PROJECTS_ROOT, EXTENSIONS_USER, EXTENSIONS_DISABLED];
+
+        // Auto created on both origins, so their presence proves nothing about the user having data.
+        // They are still migrated when something else triggers the run, since they may be edited.
+        const NOT_EVIDENCE_OF_DATA = ["default project", "explore"];
+
+        // Extension folders carrying this marker are already tombstoned for deletion at next boot.
+        const DELETED_EXTENSION_MARKER = "_wecode_extension_marked_for_delete";
+
+        const PHSTORE_DB = "PhStore";
+        const PHSTORE_STORE = "KVStore";
+        const PHSTORE_KEYS = ["extensions.disabled", "STATE_recentProjects"];
+
+        const CHUNK_SIZE = 8 * 1024 * 1024;
+
+        let parentOrigin = null;
+
+        function isTrustedOrigin(origin) {
+            // Exact match only. A startsWith test here would let https://web.wecode.dev.evil.com
+            // through, which would hand a stranger every file the user owns.
+            return TRUSTED_PARENT_ORIGINS.indexOf(origin) !== -1;
+        }
+
+        function reply(message, transfer) {
+            if (!parentOrigin) {
+                return;
+            }
+            window.parent.postMessage(message, parentOrigin, transfer || []);
+        }
+
+        function fail(id, err) {
+            console.error("migrateAssist: failed", id, err);
+            reply({ type: "MIGRATE_ERROR", id: id, message: (err && err.message) || String(err) });
+        }
+
+        function readdir(dir) {
+            return new Promise((resolve) => {
+                fs.readdir(dir, { withFileTypes: true }, (err, entries) => {
+                    resolve(err ? [] : (entries || []));
+                });
+            });
+        }
+
+        function readFileBytes(filePath) {
+            return new Promise((resolve, reject) => {
+                fs.readFile(filePath, fs.BYTE_ARRAY_ENCODING, (err, data) => {
+                    if (err) {
+                        reject(err);
+                        return;
+                    }
+                    resolve(data);
+                });
+            });
+        }
+
+        function readFileText(filePath) {
+            return new Promise((resolve) => {
+                fs.readFile(filePath, "utf8", (err, data) => {
+                    resolve(err ? null : data);
+                });
+            });
+        }
+
+        /**
+         * Walks a directory and returns every file in it as {path, relativePath, size}.
+         */
+        async function walk(rootDir, currentDir, out) {
+            const entries = await readdir(currentDir);
+            for (const entry of entries) {
+                const fullPath = currentDir + "/" + entry.name;
+                if (entry.isDirectory()) {
+                    await walk(rootDir, fullPath, out);
+                } else {
+                    out.push({
+                        path: fullPath,
+                        relativePath: fullPath.substring(rootDir.length + 1),
+                        size: entry.size || 0
+                    });
+                }
+            }
+            return out;
+        }
+
+        function readPhStore() {
+            return new Promise((resolve) => {
+                const values = {};
+                let request;
+                try {
+                    request = indexedDB.open(PHSTORE_DB);
+                } catch (e) {
+                    resolve(values);
+                    return;
+                }
+                request.onerror = () => resolve(values);
+                request.onsuccess = () => {
+                    const db = request.result;
+                    if (!db.objectStoreNames.contains(PHSTORE_STORE)) {
+                        db.close();
+                        resolve(values);
+                        return;
+                    }
+                    const store = db.transaction(PHSTORE_STORE, "readonly").objectStore(PHSTORE_STORE);
+                    let pending = PHSTORE_KEYS.length;
+                    const done = () => {
+                        pending = pending - 1;
+                        if (pending === 0) {
+                            db.close();
+                            resolve(values);
+                        }
+                    };
+                    for (const key of PHSTORE_KEYS) {
+                        const get = store.get(key);
+                        get.onsuccess = () => {
+                            // PhStore wraps every value as {t: mtime, v: jsonString}.
+                            const entry = get.result;
+                            if (entry && typeof entry.v === "string") {
+                                try {
+                                    values[key] = JSON.parse(entry.v);
+                                } catch (e) {
+                                    console.warn("migrateAssist: unparsable PhStore value", key);
+                                }
+                            }
+                            done();
+                        };
+                        get.onerror = done;
+                    }
+                };
+                // A brand new database created by the open above has no store and no data, which the
+                // contains() check above already handles.
+                request.onupgradeneeded = () => { /* nothing to do, we only ever read */ };
+            });
+        }
+
+        async function collectFiles() {
+            const files = [];
+            let hasRealProject = false;
+
+            const projectDirs = await readdir(PROJECTS_ROOT);
+            for (const entry of projectDirs) {
+                if (!entry.isDirectory()) {
+                    continue;
+                }
+                const dir = PROJECTS_ROOT + "/" + entry.name;
+                const found = await walk(dir, dir, []);
+                if (!found.length) {
+                    continue;
+                }
+                for (const f of found) {
+                    files.push({ path: f.path, size: f.size });
+                }
+                if (NOT_EVIDENCE_OF_DATA.indexOf(entry.name) === -1) {
+                    hasRealProject = true;
+                }
+            }
+
+            let extensionCount = 0;
+            for (const extRoot of [EXTENSIONS_USER, EXTENSIONS_DISABLED]) {
+                const extDirs = await readdir(extRoot);
+                const keep = [];
+                for (const entry of extDirs) {
+                    if (!entry.isDirectory()) {
+                        continue;
+                    }
+                    const markerPath = extRoot + "/" + entry.name + "/" + DELETED_EXTENSION_MARKER;
+                    if (await readFileText(markerPath) !== null) {
+                        continue; // already tombstoned for deletion, do not carry it over
+                    }
+                    keep.push(entry.name);
+                }
+                if (!keep.length) {
+                    continue;
+                }
+                if (extRoot === EXTENSIONS_USER) {
+                    extensionCount = keep.length;
+                }
+                const found = await walk(extRoot, extRoot, []);
+                for (const f of found) {
+                    if (keep.indexOf(f.relativePath.split("/")[0]) === -1) {
+                        continue;
+                    }
+                    if (f.relativePath.endsWith(DELETED_EXTENSION_MARKER)) {
+                        continue;
+                    }
+                    files.push({ path: f.path, size: f.size });
+                }
+            }
+
+            const prefsText = await readFileText(PREFS_FILE);
+            let hasPrefs = false;
+            if (prefsText) {
+                try {
+                    const parsed = JSON.parse(prefsText);
+                    hasPrefs = !!parsed && Object.keys(parsed).length > 0;
+                } catch (e) {
+                    hasPrefs = false;
+                }
+            }
+
+            return {
+                files: files,
+                prefs: hasPrefs ? prefsText : null,
+                hasData: hasRealProject || hasPrefs || extensionCount > 0
+            };
+        }
+
+        async function handleScan() {
+            const scan = await collectFiles();
+            const phStore = await readPhStore();
+            reply({
+                type: "MIGRATE_SCAN_RESULT",
+                hasData: scan.hasData,
+                files: scan.files,
+                totalBytes: scan.files.reduce((sum, f) => sum + f.size, 0),
+                prefs: scan.prefs,
+                phStore: phStore
+            });
+        }
+
+        function isAllowedFile(filePath) {
+            if (typeof filePath !== "string" || filePath.indexOf("..") !== -1) {
+                return false;
+            }
+            // Must sit under one of the three roots we are willing to hand over. Anything else,
+            // /mnt included, is refused however it is spelled.
+            return ALLOWED_ROOTS.some((root) => filePath.startsWith(root + "/"));
+        }
+
+        async function handleRead(path, offset, length) {
+            if (!isAllowedFile(path)) {
+                fail(path, new Error("Refused: path is outside the migratable roots"));
+                return;
+            }
+            const bytes = await readFileBytes(path);
+            const start = typeof offset === "number" ? offset : 0;
+            const size = typeof length === "number" ? length : CHUNK_SIZE;
+            const end = Math.min(start + size, bytes.byteLength);
+            const chunk = bytes.slice(start, end);
+            reply({
+                type: "MIGRATE_DATA",
+                path: path,
+                offset: start,
+                chunk: chunk,
+                eof: end >= bytes.byteLength
+            }, [chunk]);
+        }
+
+        window.addEventListener("message", function (event) {
+            // Re-checked on every message, not just the handshake.
+            if (!isTrustedOrigin(event.origin) || event.origin !== parentOrigin) {
+                return;
+            }
+            const data = event.data;
+            if (!data || typeof data !== "object") {
+                return;
+            }
+            if (data.type === "MIGRATE_SCAN") {
+                handleScan().catch((err) => fail("scan", err));
+            } else if (data.type === "MIGRATE_READ") {
+                handleRead(data.path, data.offset, data.length).catch((err) => fail(data.path, err));
+            }
+        });
+
+        const requestedParent = new URLSearchParams(window.location.search || "").get("parentOrigin");
+        if (isTrustedOrigin(requestedParent)) {
+            parentOrigin = requestedParent;
+            reply({ type: "MIGRATE_READY" });
+        } else {
+            // Stay silent. Never post to an unvalidated origin, not even to say no.
+            console.error("migrateAssist: refusing to run, untrusted parent origin", requestedParent);
+        }
+    }());
+</script>
+</body>
+</html>

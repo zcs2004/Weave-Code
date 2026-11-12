@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 95.16" role="img" aria-label="Game controller">
+    <g fill="none" stroke="#333333" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M38 22h46c12 0 20 8 24 20l10 32c3 10-1 17-8 18-6 1-11-3-17-12l-6-9H36l-6 9c-6 9-11 13-17 12-7-1-11-8-8-18l10-32c4-12 12-20 23-20Z"/>
+        <path d="M31 39v22M20 50h22"/>
+        <circle cx="88" cy="40" r="4.5"/>
+        <circle cx="101" cy="51" r="4.5"/>
+        <circle cx="88" cy="62" r="4.5"/>
+        <circle cx="75" cy="51" r="4.5"/>
+        <path d="M54 62h15"/>
+    </g>
+</svg>

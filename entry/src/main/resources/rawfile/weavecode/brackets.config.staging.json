@@ -1,0 +1,5 @@
+{
+    "environment": "staging",
+    "buildtype": "staging",
+    "bugsnagEnv": "staging"
+}

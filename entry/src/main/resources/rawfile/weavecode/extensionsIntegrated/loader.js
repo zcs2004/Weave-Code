@@ -1,0 +1,24 @@
+define(function (require, exports, module) {
+    require("./icons/main");
+    require("./RemoteFileAdapter/main");
+    require("./QuickOpen/main");
+    require("./Weave/main");
+    require("./NoDistractions/main");
+    require("./Weave-live-preview/main");
+    require("./DesignModeReorder/main");
+    require("./NavigationAndHistory/main");
+    require("./RecentProjects/main");
+    require("./DisplayShortcuts/main");
+    require("./appUpdater/main");
+    require("./HtmlTagSyncEdit/main");
+    require("./indentGuides/main");
+    require("./CSSColorPreview/main");
+    require("./TabBar/main");
+    require("./CustomSnippets/main");
+    require("./CollapseFolders/main");
+    require("./Terminal/main");
+    require("./JSONSupport/main");
+    require("./WeaveCodeIntelligence/main");
+    require("./MigrateAssist/main");
+    require("./pro-loader");
+});

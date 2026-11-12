@@ -1,0 +1,118 @@
+<section id="cloud-code-panel" aria-label="{{title}}">
+    <header id="cloud-code-toolbar" class="plugin-toolbar">
+        <div class="cloud-code-toolbar-title">
+            <span class="cloud-code-logo" aria-hidden="true"><i class="fa-solid fa-wand-magic-sparkles"></i></span>
+            <div>
+                <div class="cloud-code-title-text">{{title}}</div>
+                <div class="cloud-code-ai-service-notice">{{aiServiceNotice}}</div>
+            </div>
+        </div>
+        <div class="cloud-code-toolbar-actions">
+            <button id="cloudCodeNewChatBtn" class="cloud-code-icon-button" title="{{newChat}}" aria-label="{{newChat}}"><i class="fa-solid fa-plus"></i></button>
+            <button id="cloudCodeHistoryBtn" class="cloud-code-icon-button" title="{{history}}" aria-label="{{history}}"><i class="fa-solid fa-clock-rotate-left"></i></button>
+            <span class="cloud-code-toolbar-separator" aria-hidden="true"></span>
+            <button id="cloudCodeContextBtn" class="cloud-code-icon-button" title="{{addContext}}" aria-label="{{addContext}}"><i class="fa-solid fa-paperclip"></i></button>
+            <button id="cloudCodeSettingsBtn" class="cloud-code-icon-button" title="{{settings}}" aria-label="{{settings}}"><i class="fa-solid fa-gear"></i></button>
+            <button id="cloudCodeCloseBtn" class="cloud-code-icon-button" title="{{close}}" aria-label="{{close}}"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+    </header>
+
+    <aside id="cloud-code-history" class="cloud-code-history" aria-hidden="true">
+        <div class="cloud-code-history-head">
+            <span>{{history}}</span>
+            <button id="cloudCodeHistoryCloseBtn" class="cloud-code-icon-button" title="{{close}}"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <label class="cloud-code-history-search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input id="cloudCodeHistorySearch" type="search" placeholder="{{historySearch}}" aria-label="{{historySearch}}" />
+        </label>
+        <div id="cloud-code-history-list" class="cloud-code-history-list"></div>
+        <div id="cloud-code-history-empty" class="cloud-code-history-empty">{{historyEmpty}}</div>
+    </aside>
+
+    <main id="cloud-code-body">
+        <div id="cloud-code-empty-state">
+            <div class="cloud-code-hero-logo" aria-hidden="true"><span></span><span></span><span></span><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+            <h2>{{heroTitle}}</h2>
+            <p>{{heroDescription}}</p>
+            <div id="cloud-code-suggestions" aria-label="{{suggestions}}"></div>
+        </div>
+        <div id="cloud-code-messages" aria-live="polite"></div>
+    </main>
+
+    <footer id="cloud-code-footer">
+        <div id="cloud-code-context-list" class="cloud-code-context-list forced-hidden"></div>
+        <div id="cloud-code-composer">
+            <div class="cloud-code-composer-tools">
+                <button id="cloudCodeComposerContextBtn" class="cloud-code-pill-button" title="{{addContext}}"><i class="fa-solid fa-at"></i><span>{{addContext}}</span></button>
+                <button id="cloudCodeThinkBtn" class="cloud-code-pill-button" title="{{deepThinking}}" aria-pressed="false"><i class="fa-solid fa-atom"></i><span>{{deepThinking}}</span></button>
+            </div>
+            <textarea id="cloudCodeInput" rows="1" placeholder="{{placeholder}}" aria-label="{{placeholder}}"></textarea>
+            <div class="cloud-code-composer-footer">
+                <div class="cloud-code-selectors">
+                    <label class="cloud-code-select-wrap" title="{{mode}}">
+                        <i id="cloudCodeModeIcon" class="fa-regular fa-comments"></i>
+                        <select id="cloudCodeModeSelect" aria-label="{{mode}}"><option value="ask">{{askMode}}</option><option value="agent">{{agentMode}}</option></select>
+                    </label>
+                    <label class="cloud-code-select-wrap" title="{{model}}">
+                        <i class="fa-solid fa-cube"></i>
+                        <select id="cloudCodeModelSelect" aria-label="{{model}}"></select>
+                    </label>
+                </div>
+                <button id="cloudCodeSendBtn" class="cloud-code-send-button" title="{{send}}" aria-label="{{send}}"><i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+        </div>
+        <div class="cloud-code-disclaimer">{{disclaimer}}</div>
+    </footer>
+
+    <div id="cloud-code-settings" class="cloud-code-settings" aria-hidden="true">
+        <div class="cloud-code-settings-inner" role="dialog" aria-modal="true" aria-labelledby="cloudCodeSettingsTitle">
+            <div class="cloud-code-settings-head">
+                <div><div id="cloudCodeSettingsTitle" class="cloud-code-settings-title">{{settings}}</div><div class="cloud-code-settings-subtitle">{{settingsDescription}}</div></div>
+                <button id="cloudCodeSettingsCloseBtn" class="cloud-code-icon-button" title="{{close}}"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="cloud-code-settings-tabs" role="tablist">
+                <button id="cloudCodeAddModelTab" class="cloud-code-settings-tab active" role="tab" aria-selected="true">{{addModel}}</button>
+                <button id="cloudCodeManageModelsTab" class="cloud-code-settings-tab" role="tab" aria-selected="false">{{manageModels}}</button>
+            </div>
+            <div id="cloudCodeAddModelPage" class="cloud-code-settings-page">
+                <label class="cloud-code-settings-label" for="cloudCodeProviderSelect">{{providerLabel}}</label>
+                <select id="cloudCodeProviderSelect" class="cloud-code-settings-input">
+                    <option value="alibaba">{{providerAlibaba}}</option>
+                    <option value="deepseek">{{providerDeepSeek}}</option>
+                    <option value="moonshot">{{providerMoonshot}}</option>
+                    <option value="minimax">{{providerMiniMax}}</option>
+                    <option value="zhipu">{{providerZhipu}}</option>
+                </select>
+                <div class="cloud-code-settings-hint">{{providerHint}}</div>
+                <label class="cloud-code-settings-label" for="cloudCodeApiUrlInput">{{apiUrlLabel}}</label>
+                <input id="cloudCodeApiUrlInput" type="url" class="cloud-code-settings-input" value="https://api.deepseek.com" autocomplete="off" readonly aria-readonly="true" />
+                <div class="cloud-code-settings-hint">{{apiUrlLockedHint}}</div>
+                <label class="cloud-code-settings-label" for="cloudCodeApiKeyInput">{{apiKeyLabel}}</label>
+                <div class="cloud-code-secret-row">
+                    <input id="cloudCodeApiKeyInput" type="password" class="cloud-code-settings-input" placeholder="{{apiKeyPlaceholder}}" autocomplete="off" />
+                    <button id="cloudCodeRevealKeyBtn" class="cloud-code-icon-button" title="{{showKey}}"><i class="fa-solid fa-eye"></i></button>
+                </div>
+                <div class="cloud-code-settings-hint">{{apiKeyHint}}</div>
+                <div class="cloud-code-settings-grid">
+                    <div>
+                        <label class="cloud-code-settings-label" for="cloudCodeModelIdInput">{{modelIdLabel}}</label>
+                        <input id="cloudCodeModelIdInput" type="text" class="cloud-code-settings-input" placeholder="{{modelIdPlaceholder}}" autocomplete="off" />
+                        <div class="cloud-code-settings-hint">{{modelIdHint}}</div>
+                    </div>
+                    <div>
+                        <label class="cloud-code-settings-label" for="cloudCodeModelNameInput">{{modelNameLabel}}</label>
+                        <input id="cloudCodeModelNameInput" type="text" class="cloud-code-settings-input" placeholder="{{modelNamePlaceholder}}" autocomplete="off" />
+                        <div class="cloud-code-settings-hint">{{modelNameHint}}</div>
+                    </div>
+                </div>
+                <div id="cloudCodeSettingsError" class="cloud-code-settings-error forced-hidden"></div>
+                <div class="cloud-code-settings-actions"><button id="cloudCodeSettingsCancelBtn" class="cloud-code-secondary-button">{{cancel}}</button><button id="cloudCodeSettingsSaveBtn" class="cloud-code-primary-button">{{saveModel}}</button></div>
+            </div>
+            <div id="cloudCodeManageModelsPage" class="cloud-code-settings-page forced-hidden">
+                <div id="cloudCodeManageModelsList" class="cloud-code-manage-models"></div>
+                <div id="cloudCodeManageModelsEmpty" class="cloud-code-settings-empty">{{noModels}}</div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,10 @@
+{
+  "name": "wecode-git-core",
+  "title": "Weave Code Git",
+  "version": "1.0.0",
+  "engines": {
+    "brackets": ">=4.0.0"
+  },
+  "description": "Integration of Git into Weave Code",
+  "dependencies": {}
+}

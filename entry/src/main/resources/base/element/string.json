@@ -1,0 +1,24 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "Weave Code web development environment"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "Weave Code main interface"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "Weave Code"
+    },
+    {
+      "name": "permission_read_pasteboard_reason",
+      "value": "Allow Weave Code to paste text and code from the system clipboard."
+    },
+    {
+      "name": "permission_write_imagevideo_reason",
+      "value": "Allow Weave Code to save generated and edited images or videos to the system gallery."
+    }
+  ]
+}

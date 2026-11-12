@@ -1,0 +1,5 @@
+{
+    "environment": "production",
+    "buildtype": "production",
+    "bugsnagEnv": "production"
+}

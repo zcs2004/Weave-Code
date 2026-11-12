@@ -1,0 +1,697 @@
+@import "brackets_variables.less";
+@import "brackets_core_ui_variables.less";
+
+/* ---- Weave Pro gradient title ----
+ Light default: use the "light" gradient so it pops on light bg.
+ Dark override: switch to the "dark" gradient for richer contrast. */
+.weave-pro-title {
+  background: @weave-pro-gradient-light;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+
+  .dark & {
+    background: @weave-pro-gradient-dark;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+.weave-pro-title-plain {
+  color: @weavePro-brand-light;
+
+  .dark & {
+    color: @weavePro-brand-dark;
+  }
+}
+
+/* Dialog styles with light default + .dark overrides */
+.browser-login-waiting-dialog, .pro-upgrade-dialog{
+  .modal-header .dialog-title {
+    color: @bc-text-emphasized;
+    .dark & { color: @dark-bc-text-alt; }
+  }
+
+  .waiting-content-container > p {
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: @bc-text-medium;
+    .dark & { color: @dark-bc-text-medium; }
+  }
+
+  a {
+    color: @bc-text-link;
+    text-decoration: none;
+    .dark & { color: @dark-bc-text-link; }
+  }
+  a:hover { text-decoration: underline; }
+}
+
+.pro-upgrade-dialog.modal {
+  width: 880px;
+  max-width: ~"min(calc(100vw - 32px), calc((100vh - 280px) * 16 / 9))";
+
+  display: flex;
+  flex-direction: column;
+  overflow: hidden !important;
+
+  .modal-header {
+    flex: 0 0 auto;
+    padding-bottom: 12px;
+  }
+
+  .modal-footer {
+    flex: 0 0 auto;
+  }
+
+  .dialog-subtitle {
+    margin: 6px 0 0;
+    font-size: 13px;
+    color: @bc-text-medium;
+    .dark & { color: @dark-bc-text-medium; }
+  }
+
+  .modal-body {
+    flex: 1 1 auto;
+    min-height: 0;
+    padding: 0;
+    max-height: none;
+    overflow: auto;
+  }
+
+  .feature-carousel {
+    position: relative;
+    width: 100%;
+    user-select: none;
+  }
+
+  .feature-stage {
+    position: relative;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    max-height: ~"min(495px, calc(100vh - 280px))";
+    overflow: hidden;
+    background: #1b1b1b;
+  }
+
+  /* Slide-over animation: every slide is positioned absolute and lives
+     at one of three transforms — off-screen right (default), active (0),
+     or off-screen left (.is-left). JS toggles is-active / is-left so the
+     transitioning slides cross-fade and translate at the same time, in
+     the direction matching the user's nav. */
+  .feature-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.35s ease;
+    will-change: transform, opacity;
+  }
+
+  .feature-slide.is-left {
+    transform: translateX(-100%);
+  }
+
+  /* Defined after .is-left so a slide flipping from is-left to is-active
+     animates straight from -100% to 0, no intermediate jump to +100%. */
+  .feature-slide.is-active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(0);
+  }
+
+  .feature-thumb {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: #1b1b1b;
+  }
+
+  .feature-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .feature-video.is-ready {
+    opacity: 1;
+  }
+
+  /* ---- Subtle bottom gradient so dots stay legible on bright frames ---- */
+  .feature-stage::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 56px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0));
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.55);
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    transition: opacity 0.2s ease, background-color 0.15s ease, transform 0.15s ease;
+    z-index: 3;
+
+    &:hover { background: rgba(0, 0, 0, 0.78); }
+    &:active { transform: translateY(-50%) scale(0.95); }
+    &:focus { outline: none; }
+    &:focus-visible {
+      outline: 2px solid @bc-btn-border-focused;
+      outline-offset: 2px;
+    }
+
+    &:disabled {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+
+  .carousel-arrow-prev { left: 16px; }
+  .carousel-arrow-next { right: 16px; }
+
+  .carousel-dots {
+    position: absolute;
+    left: 50%;
+    bottom: 16px;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 3;
+  }
+
+  .carousel-dot {
+    width: 8px;
+    height: 8px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.45);
+    cursor: pointer;
+    transition: background-color 0.15s ease, transform 0.15s ease;
+
+    &:hover { background: rgba(255, 255, 255, 0.8); }
+    &:focus { outline: none; }
+    &:focus-visible {
+      outline: 2px solid @bc-btn-border-focused;
+      outline-offset: 2px;
+    }
+  }
+
+  .carousel-dot.is-active {
+    background: #fff;
+    transform: scale(1.25);
+  }
+
+  .feature-stage.has-stall-controls .carousel-dots {
+    bottom: 56px;
+  }
+
+  .feature-info {
+    position: relative;
+    display: grid;
+    grid-template-areas: "stack";
+    background: @bc-panel-bg-alt;
+    border-top: 1px solid @bc-panel-border;
+    overflow: hidden;
+    .dark & {
+      background: @dark-bc-panel-bg-alt;
+      border-top-color: @dark-bc-highlight;
+    }
+  }
+
+  /* Mirror the .feature-slide transform/cross-fade so the text below the
+     video animates in the same direction as the video stage. */
+  .feature-info-slide {
+    grid-area: stack;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px 28px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.35s ease;
+    will-change: transform, opacity;
+    font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .feature-info-slide.is-left {
+    transform: translateX(-100%);
+  }
+
+  .feature-info-slide.is-active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(0);
+  }
+
+  .feature-info-slide h2 {
+    margin: 0 0 3px;
+    font-size: 18px;
+    line-height: 1.25;
+    letter-spacing: 0.02em;
+    color: @bc-text-emphasized;
+    .dark & { color: @dark-bc-text-alt; }
+  }
+
+  .feature-info-slide p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.45;
+    letter-spacing: 0.02em;
+    word-spacing: 0.08em;
+    color: @bc-text-medium;
+    max-width: 780px;
+    .dark & { color: @dark-bc-text-medium; }
+  }
+}
+
+.pro-ended-dialog.modal {
+  display: flex;
+  flex-direction: column;
+  width: 640px;
+  height: 640px;              /* overall modal height */
+}
+
+.pro-ended-dialog .modal-header,
+.pro-ended-dialog .modal-footer {
+  flex: 0 0 auto;            /* don’t stretch */
+}
+
+.pro-ended-dialog .modal-body {
+  flex: 1 1 auto;            /* take all leftover space */
+  min-height: 0;             /* allow shrinking properly */
+  max-height: 100%;             /* allow shrinking properly */
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  background: none;
+}
+
+.pro-ended-dialog .promo-iframe-wrap {
+  flex: 1 1 auto;
+  min-height: 0;             /* important inside flex */
+  display: flex;
+}
+
+.pro-ended-dialog .promo-iframe {
+  flex: 1 1 auto;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+/* ---- License Management Dialog ---- */
+.license-management-dialog {
+  /* The base modal caps body height at ~400px and turns on overflow:auto.
+     This dialog has two stacked sections that exceed that; let it grow
+     up to the viewport so the user doesn't have to scroll. */
+  .modal-body {
+    max-height: calc(100vh - 160px);
+  }
+
+  /* ---- Layout ---- */
+  .license-account-section {
+    margin-bottom: 8px;
+
+    /* Account section uses a bare <h3> (no flex header), so add the
+       breathing room that .license-section-header would otherwise
+       provide. */
+    > .license-section-title {
+      margin-bottom: 12px;
+    }
+  }
+
+  .license-status-section {
+    margin-top: 8px;
+  }
+
+  /* ---- Form Elements ---- */
+  .license-form-group {
+    margin-bottom: 16px;
+  }
+
+  .license-form-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    font-size: 14px;
+    color: @bc-text-medium;
+
+    .dark & {
+      color: @dark-bc-text-medium;
+    }
+  }
+
+  .license-form-input {
+    box-sizing: border-box;
+    height: 38px;
+    margin: 0;
+  }
+
+  /* Activate-key row sits above the current-license card; input
+     stretches, the Activate button hugs the right edge. */
+  .license-key-row {
+    display: flex;
+    gap: 8px;
+    align-items: stretch;
+
+    .license-form-input {
+      flex: 1;
+      min-width: 0;
+    }
+  }
+
+  /* ---- Activation Button ---- */
+  .license-activate-btn {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0 16px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: @bc-border-radius;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+    white-space: nowrap;
+
+    .btn-spinner {
+      display: none;
+    }
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  }
+
+  /* Account section action row: right-aligned, tight spacing. */
+  .license-account-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+
+  /* Signed-in account card: plan name on the left, action on the right,
+     all on one line — drops the redundant "Plan:" label. */
+  .license-account-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  /* ---- Section Divider ---- */
+  .license-divider {
+    margin: 16px 0;
+    border: none;
+    border-top: 1px solid @bc-panel-border;
+
+    .dark & {
+      border-top-color: @dark-bc-panel-separator;
+    }
+  }
+
+  /* ---- Section Headers ---- */
+  .license-section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .license-section-title {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 500;
+    color: @bc-text-emphasized;
+
+    .dark & {
+      color: @dark-bc-text-alt;
+    }
+  }
+
+  /* ---- "License isn't applied to this device" banner ---- */
+  .license-not-applied-warning {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 12px;
+    margin-bottom: 12px;
+    border: 1px solid #f0ad4e;
+    border-radius: @bc-border-radius;
+    background-color: rgba(240, 173, 78, 0.12);
+    color: #b8761c;
+    font-size: 13px;
+    line-height: 1.4;
+
+    .dark & {
+      color: #f0c170;
+    }
+
+    .fa-exclamation-triangle {
+      font-size: 16px;
+      margin-top: 1px;
+    }
+  }
+
+  /* ---- Status States ---- */
+  .license-status-loading,
+  .license-status-none,
+  .license-status-error {
+    text-align: center;
+    padding: 20px;
+  }
+
+  .license-status-loading {
+    color: @bc-text-medium;
+
+    .dark & {
+      color: @dark-bc-text-medium;
+    }
+
+    .fa-spinner {
+      margin-right: 8px;
+      color: @bc-text-medium;
+
+      .dark & {
+        color: @dark-bc-text-medium;
+      }
+    }
+  }
+
+  .license-status-none {
+    color: @bc-text-medium;
+
+    .dark & {
+      color: @dark-bc-text-medium;
+    }
+
+    .fa-exclamation-circle {
+      margin-right: 8px;
+      color: #ff9500;
+      font-size: 18px;
+    }
+  }
+
+  .license-status-error {
+    color: @bc-error;
+
+    .dark & {
+      color: @dark-bc-error;
+    }
+
+    .fa-exclamation-triangle {
+      margin-right: 8px;
+      font-size: 18px;
+    }
+  }
+
+  /* ---- Valid License Info Card ---- */
+  .license-info-card {
+    border: 1px solid @bc-panel-border;
+    border-radius: @bc-border-radius-large;
+    padding: 16px;
+    background-color: @bc-panel-bg-alt;
+
+    .dark & {
+      border-color: @dark-bc-highlight;
+      background-color: @dark-bc-panel-bg-alt;
+    }
+  }
+
+  .license-info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    .license-info-label {
+      color: @bc-text-medium;
+      font-size: 14px;
+
+      .dark & {
+        color: @dark-bc-text-medium;
+      }
+    }
+
+    .license-info-value {
+      font-weight: 500;
+      color: @bc-text-emphasized;
+      font-size: 14px;
+
+      .dark & {
+        color: @dark-bc-text-alt;
+      }
+    }
+  }
+
+  /* ---- Status Badge ---- */
+  .license-status-badge {
+    padding: 4px 8px;
+    background-color: #28a745;
+    color: white;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+
+    /* Warning variant: server-side license valid, but the local
+       activation marker is missing so Pro features won't work yet. */
+    &.warning {
+      background-color: #f0ad4e;
+    }
+  }
+
+  /* ---- Activation Messages ---- */
+  .license-activation-message {
+    margin-top: 16px;
+    padding: 12px;
+    border-radius: @bc-border-radius;
+    font-size: 14px;
+    display: none;
+
+    &.success {
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+
+      .dark & {
+        background-color: @dark-bc-success-bg;
+        color: #4dff4d;
+        border-color: #2d5a2d;
+      }
+    }
+
+    &.error {
+      background-color: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+
+      .dark & {
+        background-color: fade(@dark-bc-error, 15%);
+        color: @dark-bc-error;
+        border-color: fade(@dark-bc-error, 30%);
+      }
+    }
+  }
+
+  /* ---- Dialog Header ---- */
+  .modal-header .dialog-title {
+    color: @bc-text-emphasized;
+
+    .dark & {
+      color: @dark-bc-text-alt;
+    }
+  }
+}
+
+#notification-bar {
+  display: block;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.53);
+  padding: 5px 0px;
+  width: 100%;
+  min-height: 39px;
+  position: absolute;
+  z-index: 16;
+  left: 0px;
+  bottom: 25px;
+  outline: none;
+  overflow: hidden;
+  color: rgb(51, 51, 51);
+  background-color: rgb(223, 226, 226);
+}
+
+.dark #notification-bar {
+  color: #ccc;
+  background: #2c2c2c;
+}
+
+#notification-bar .content-container {
+  padding: 5px 10px;
+  float: left;
+  width: 100%;
+}
+
+#notification-bar .close-icon-container {
+  height: auto;
+  position: absolute;
+  float: right;
+  text-align: center;
+  width: auto;
+  min-width: 66px;
+  right: 20px;
+  top: 10px;
+}
+
+#notification-bar .close-icon-container .close-icon {
+  display: block;
+  font-size: 18px;
+  line-height: 18px;
+  text-decoration: none;
+  width: 18px;
+  height: 18px;
+  background-color: transparent;
+  border: none;
+  padding: 0px; /*This is needed to center the icon*/
+  float: right;
+}
+
+.dark #notification-bar .close-icon-container .close-icon {
+  color: #ccc;
+}

@@ -1,0 +1,37 @@
+/* The menu bar contains floated items. Establish a formatting context in every
+ * host (including the HarmonyOS WebView) so those floats cannot occupy space in
+ * the editor that follows it. */
+#titlebar {
+    display: flow-root;
+}
+
+/* Keep split editors inside the space that remains after the project sidebar. */
+#editor-holder.split-vertical {
+    display: flex !important;
+    flex-direction: row;
+    align-items: stretch;
+    clear: both;
+    width: 100%;
+}
+
+#editor-holder.split-vertical > .view-pane {
+    box-sizing: border-box;
+    float: none !important;
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    margin-left: 0 !important;
+    transform: none !important;
+    min-width: 0;
+    max-width: 100%;
+}
+
+#editor-holder.split-vertical > #first-pane {
+    flex: 0 0 auto;
+}
+
+#editor-holder.split-vertical > #second-pane {
+    flex: 0 0 auto;
+}

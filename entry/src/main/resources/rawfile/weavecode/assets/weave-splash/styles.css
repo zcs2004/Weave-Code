@@ -1,0 +1,262 @@
+/* Brackets Fonts */
+
+/* Alternative weights */
+
+:root {
+    --sansFontFamily: 'SourceSansPro', Helvetica, Arial, "Meiryo UI", "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+}
+
+/* SourceSansPro Regular */
+@font-face {
+    font-family: 'SourceSansPro';
+    src: url('../../styles/fonts/SourceSansPro/SourceSansPro-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    background: #000A2E;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--sansFontFamily) ;
+    font-size: 22px;
+}
+
+body.no-preview-page {
+    min-width: 320px;
+    min-height: 100vh;
+    margin: 0;
+    color: #f5f5f7;
+    background: #030a24;
+}
+
+.weave-loader-background {
+    isolation: isolate;
+    position: relative;
+    width: 100vw;
+    min-height: 100vh;
+    overflow: hidden;
+    background: radial-gradient(ellipse at 50% 36%, #101c40 0%, #06102f 36%, #030a24 75%);
+}
+
+.weave-loader-stars {
+    position: absolute;
+    z-index: -3;
+    inset: 0;
+    opacity: .76;
+    background-image:
+        radial-gradient(circle at 12% 13%, #d9e4ff 0 1px, transparent 2px),
+        radial-gradient(circle at 80% 15%, #d9e4ff 0 1.5px, transparent 3px),
+        radial-gradient(circle at 25% 30%, #fff 0 1px, transparent 2px),
+        radial-gradient(circle at 88% 39%, #fff 0 1px, transparent 2.5px),
+        radial-gradient(circle at 10% 57%, #fff 0 1px, transparent 2.5px),
+        radial-gradient(circle at 72% 65%, #d9e4ff 0 1px, transparent 2px),
+        radial-gradient(circle at 44% 19%, #fff 0 1px, transparent 2px),
+        radial-gradient(circle at 57% 50%, #d9e4ff 0 1.5px, transparent 3px),
+        radial-gradient(circle at 33% 74%, #fff 0 1px, transparent 2px),
+        radial-gradient(circle at 93% 78%, #fff 0 1px, transparent 2px),
+        radial-gradient(circle at 22% 83%, #d9e4ff 0 1px, transparent 2px),
+        radial-gradient(circle at 67% 28%, #d9e4ff 0 1px, transparent 2px);
+}
+
+.weave-loader-orbit {
+    position: absolute;
+    z-index: -2;
+    width: min(450px, 90vw);
+    aspect-ratio: 1;
+    top: 7%;
+    left: 50%;
+    border: 1px solid rgba(83, 105, 157, .35);
+    border-radius: 50%;
+    transform: translateX(-50%);
+}
+
+.weave-loader-orbit-two {
+    width: min(350px, 70vw);
+    top: 14%;
+    border-style: dashed;
+    opacity: .55;
+}
+
+.no-preview-page #mainDiv {
+    top: 50%;
+    width: min(720px, 86vw);
+}
+
+.no-preview-page #MainText p {
+    margin: 12px 0 0;
+    color: #aab5d0;
+}
+
+.weave-loader-footer {
+    position: absolute;
+    right: 0;
+    bottom: 22px;
+    left: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.weave-loader-footer i {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #f1c87e;
+}
+
+img {
+    vertical-align: middle;
+    border-style: none;
+}
+
+#starsLeft {
+    position: absolute;
+    left: 0px;
+    top: 5%;
+    opacity: 0.7;
+    z-index: 2;
+}
+
+#starsRight {
+    position: absolute;
+    z-index: 2;
+    right: 0px;
+    top: 5%;
+    opacity: 0.7;
+}
+
+#mainDiv {
+    color: #ffffffef;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    z-index: 8;
+    align-items: center;
+    justify-content: center;
+    display: flex!important;
+    flex-direction: column!important;
+}
+
+#logo {
+    height: 35vh;
+    vertical-align: middle;
+    border-style: none;
+    box-sizing: border-box;
+
+}
+
+#MainText {
+    color: #ffffffef;
+    text-align: center!important;
+}
+
+h1 {
+    font-size: 2.25rem;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-top: 0;
+}
+
+.safari-text {
+    margin-top: -40px;
+    font-size: small !important;
+}
+
+.primary-button {
+    width: 200px;
+    height: 45px;
+    background: linear-gradient(90deg, #FAAA47 0%, #FA1801 100%);
+    font-family: var(--sansFontFamily) ;
+    background-size: 200% 200%;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    color: #ffffffef;
+    cursor: pointer;
+    box-shadow: 0 0 0 #FAAA47;
+    transition:2s background-color;
+    animation: Animation 2s ease infinite;
+}
+
+.primary-button#load-status-display-btn {
+    height: 5px;
+    line-height: 3;
+    cursor: auto;
+}
+
+
+@keyframes Animation {
+    0%{background-position:0% 0%}
+    50%{background-position:100% 0%}
+    100%{background-position:0% 0%}
+}
+
+
+.clouds {
+    position: absolute;
+    bottom: 0;
+    width: 101%;
+}
+
+#cloudLeftTop {
+    position: absolute;
+    top: -10%;
+    left: -20px;
+    z-index: 1;
+}
+
+#cloudBottomRight {
+    position: absolute;
+    bottom: 10%;
+    right: -20px;
+    z-index: 1;
+}
+
+.night {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform: rotateZ(45deg);
+}
+
+.shooting_star {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100px;
+    height: 1px;
+    background: linear-gradient(-45deg, rgba(95, 145, 255, 1), rgba(0, 0, 255, 0));
+    border-radius: 999px;
+    filter: drop-shadow(0 0 6px rgba(105, 155, 255, 1));
+    animation:
+            tail 3000ms ease-in-out ,
+            shooting 3000ms ease-in-out ;
+    animation-fill-mode: forwards;
+}
+
+@keyframes tail {
+    0% {
+        width: 0;
+    }
+
+    30% {
+        width: 100px;
+    }
+
+    100% {
+        width: 0;
+    }
+}
+
+@keyframes shooting {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(300px);
+    }
+}

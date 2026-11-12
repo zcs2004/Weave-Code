@@ -1,0 +1,2531 @@
+{
+  "dark-wild-chery": {
+    "metadata": {
+      "title": "Dark Wild Cherry",
+      "name": "dark-wild-chery",
+      "description": "Dark Wild Cherry theme by Omar Mashaal, adaptation for Brackets",
+      "version": "1.0.2",
+      "author": {
+        "name": "Omar Mashaal <omar@teacups.io>, adaptation by Sergey Nikolaev <redredseas@gmail.com>"
+      },
+      "homepage": "https://github.com/mashaal/wild-cherry",
+      "keywords": [
+        "extension",
+        "brackets",
+        "wild",
+        "cherry",
+        "dark",
+        "theme",
+        "berry",
+        "hot"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/mashaal/wild-cherry"
+      },
+      "engines": {
+        "brackets": ">=1.0.0"
+      },
+      "theme": {
+        "file": "DarkWildCherry.less",
+        "dark": true
+      },
+      "screenshot": "ss/dwc-js.PNG"
+    },
+    "owner": "github:https://github.com/yyynnn/theme-brackets-dark-wild-cherry",
+    "versions": [
+      {
+        "version": "1.0.2",
+        "published": "2016-11-13T13:14:45.015Z",
+        "brackets": ">=1.0.0",
+        "downloads": 5767
+      }
+    ],
+    "totalDownloads": 6706,
+    "recent": {
+      "20180905": 1,
+      "20180906": 3,
+      "20180907": 1,
+      "20180908": 2,
+      "20180909": 28,
+      "20180910": 16,
+      "20180911": 10
+    },
+    "gihubStars": 485,
+    "ownerRepo": "https://github.com/mashaal/wild-cherry"
+  },
+  "ivogabe.icons": {
+    "metadata": {
+      "name": "ivogabe.icons",
+      "title": "Brackets Icons",
+      "description": "File icons in Brackets' file tree.",
+      "homepage": "https://github.com/ivogabe/Brackets-Icons",
+      "version": "1.5.7",
+      "author": {
+        "name": "Ivo Gabe de Wolff",
+        "url": "https://github.com/ivogabe"
+      },
+      "license": "MIT",
+      "keywords": [
+        "icons",
+        "file",
+        "tree"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/ivogabe/Brackets-Icons.git"
+      },
+      "engines": {
+        "brackets": ">=0.44.0"
+      },
+      "devDependencies": {
+        "gulp": "^3.9.0",
+        "gulp-typescript": "^2.7.7",
+        "gulp-zip": "^3.0.2",
+        "typescript": "^1.5.0-beta"
+      }
+    },
+    "owner": "github:ivogabe",
+    "versions": [
+      {
+        "version": "1.5.7",
+        "published": "2016-05-29T13:39:56.150Z",
+        "brackets": ">=0.44.0",
+        "downloads": 237473
+      }
+    ],
+    "totalDownloads": 518141,
+    "recent": {
+      "20180905": 257,
+      "20180906": 245,
+      "20180907": 206,
+      "20180908": 192,
+      "20180909": 4674,
+      "20180910": 4606,
+      "20180911": 412
+    },
+    "gihubStars": 249,
+    "ownerRepo": "https://github.com/ivogabe/Brackets-Icons"
+  },
+  "swmitra.html-designer": {
+    "metadata": {
+      "name": "swmitra.html-designer",
+      "title": "HTML Designer for Brackets",
+      "description": "NOW WITH RESPONSIVE DESIGN TOOLS (BETA)! Design and customize web ui with HTML and CSS. Now with taggable Design snippet/bookmark support.",
+      "homepage": "https://github.com/swmitra/html-designer",
+      "version": "2.0.6",
+      "author": {
+        "name": "Swagatam Mitra",
+        "email": "swagatammitra@gmail.com"
+      },
+      "license": "MIT",
+      "keywords": [
+        "HTML",
+        "CSS",
+        "Designer",
+        "Illustration",
+        "Design Editor"
+      ],
+      "engines": {
+        "brackets": ">=1.0.0"
+      }
+    },
+    "owner": "github:swmitra",
+    "versions": [
+      {
+        "version": "2.0.6",
+        "published": "2015-12-21T11:24:07.811Z",
+        "brackets": ">=1.0.0",
+        "downloads": 54354
+      }
+    ],
+    "totalDownloads": 112802,
+    "recent": {
+      "20180905": 23,
+      "20180906": 30,
+      "20180907": 28,
+      "20180908": 18,
+      "20180909": 411,
+      "20180910": 303,
+      "20180911": 24
+    },
+    "gihubStars": 442,
+    "ownerRepo": "https://github.com/swmitra/html-designer"
+  },
+  "lamo2k123.brackets-file-tree": {
+    "metadata": {
+      "name": "lamo2k123.brackets-file-tree",
+      "title": "Brackets File Tree",
+      "description": "Visual display of the tree of files and folders.",
+      "homepage": "http://l2k-dev.ru/topic/3/brackets-file-tree",
+      "version": "1.1.1",
+      "author": {
+        "name": "Alexsey Novikov",
+        "email": "lamo2k123@gmail.com",
+        "url": "https://github.com/lamo2k123"
+      },
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/lamo2k123/brackets-tree.git"
+      },
+      "bugs": {
+        "url": "https://github.com/lamo2k123/brackets-tree/issues",
+        "email": "lamo2k123@gmail.com"
+      },
+      "devDependencies": {
+        "grunt": ">= 0.4",
+        "grunt-cli": ">= 0.1.6",
+        "grunt-contrib-watch": "~0.3.1",
+        "grunt-contrib-less": "~0.12.0"
+      },
+      "license": "MIT",
+      "keywords": [
+        "tree",
+        "display tree",
+        "file",
+        "files",
+        "folder",
+        "folders",
+        "sidebar tree",
+        "brackets file tree",
+        "file tree"
+      ],
+      "engines": {
+        "brackets": ">=0.44.0"
+      },
+      "categories": "visual"
+    },
+    "owner": "github:lamo2k123",
+    "versions": [
+      {
+        "version": "1.1.1",
+        "published": "2014-11-13T21:17:57.950Z",
+        "brackets": ">=0.44.0",
+        "downloads": 335954
+      }
+    ],
+    "totalDownloads": 451070,
+    "recent": {
+      "20180905": 34,
+      "20180906": 36,
+      "20180907": 32,
+      "20180908": 27,
+      "20180909": 572,
+      "20180910": 748,
+      "20180911": 55
+    },
+    "gihubStars": 0
+  },
+  "mikaeljorhult.brackets-autoprefixer": {
+    "metadata": {
+      "name": "mikaeljorhult.brackets-autoprefixer",
+      "title": "Autoprefixer",
+      "description": "Parse CSS and add vendor prefixes automatically.",
+      "homepage": "https://github.com/mikaeljorhult/brackets-autoprefixer",
+      "version": "0.7.5",
+      "author": {
+        "name": "Mikael Jorhult",
+        "email": "mikael@jorhult.se",
+        "url": "http://jorhult.se"
+      },
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/mikaeljorhult/brackets-autoprefixer"
+      },
+      "license": "MIT",
+      "engines": {
+        "brackets": ">=0.37.0"
+      },
+      "i18n": [
+        "de",
+        "en",
+        "es",
+        "fr",
+        "gl",
+        "it",
+        "sv",
+        "uk",
+        "ru",
+        "pl"
+      ],
+      "scripts": {
+        "test": "./node_modules/.bin/eslint . --ext .js"
+      },
+      "devDependencies": {
+        "eslint": "^3.19.0",
+        "eslint-config-standard": "^10.2.1",
+        "eslint-plugin-import": "^2.2.0",
+        "eslint-plugin-node": "^4.2.2",
+        "eslint-plugin-promise": "^3.5.0",
+        "eslint-plugin-standard": "^3.0.1"
+      }
+    },
+    "owner": "github:mikaeljorhult",
+    "versions": [
+      {
+        "version": "0.7.5",
+        "published": "2017-09-07T20:07:15.804Z",
+        "brackets": ">=0.37.0",
+        "downloads": 89458
+      }
+    ],
+    "totalDownloads": 444534,
+    "recent": {
+      "20180905": 188,
+      "20180906": 163,
+      "20180907": 149,
+      "20180908": 134,
+      "20180909": 2562,
+      "20180910": 2838,
+      "20180911": 316
+    },
+    "gihubStars": 188,
+    "ownerRepo": "https://github.com/mikaeljorhult/brackets-autoprefixer"
+  },
+  "edc.brackets-snippets": {
+    "metadata": {
+      "name": "edc.brackets-snippets",
+      "title": "Brackets Snippets (by edc)",
+      "description": "Imitate Sublime Text's behavior of snippets, and bring it to Brackets.",
+      "homepage": "https://github.com/chuyik/brackets-snippets",
+      "author": {
+        "name": "Edward Chu",
+        "email": "crazyzyt@gmail.com",
+        "url": "https://github.com/chuyik"
+      },
+      "keywords": [
+        "snippet",
+        "css",
+        "html",
+        "js",
+        "hint",
+        "sublime",
+        "completion",
+        "brackets",
+        "javascript",
+        "autocomplete"
+      ],
+      "license": "MIT",
+      "version": "1.8.1",
+      "engines": {
+        "brackets": ">=0.0.0"
+      },
+      "main": "main.js",
+      "scripts": {
+        "test": "echo \"Error: no test specified.\" && exit 1"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/chuyik/brackets-snippets.git"
+      }
+    },
+    "owner": "github:chuyik",
+    "versions": [
+      {
+        "version": "1.8.1",
+        "published": "2015-05-31T17:15:08.915Z",
+        "brackets": ">=0.0.0",
+        "downloads": 101486
+      }
+    ],
+    "totalDownloads": 125586,
+    "recent": {
+      "20180905": 86,
+      "20180906": 64,
+      "20180907": 68,
+      "20180908": 63,
+      "20180909": 1437,
+      "20180910": 1277,
+      "20180911": 195
+    },
+    "gihubStars": 279,
+    "ownerRepo": "https://github.com/chuyik/brackets-snippets"
+  },
+  "gruehle.markdown-preview": {
+    "metadata": {
+      "name": "gruehle.markdown-preview",
+      "title": "Markdown Preview",
+      "description": "Live preview of markdown documents",
+      "homepage": "https://github.com/gruehle/MarkdownPreview",
+      "version": "1.0.11",
+      "author": {
+        "name": "Glenn Ruehle",
+        "email": "gruehle@gmail.com",
+        "url": "http://github.com/gruehle"
+      },
+      "license": "MIT",
+      "engines": {
+        "brackets": ">=1.1"
+      }
+    },
+    "owner": "github:gruehle",
+    "versions": [
+      {
+        "version": "1.0.11",
+        "published": "2015-10-16T18:44:33.138Z",
+        "brackets": ">=1.1",
+        "downloads": 50510
+      }
+    ],
+    "totalDownloads": 123557,
+    "recent": {
+      "20180905": 28,
+      "20180906": 21,
+      "20180907": 18,
+      "20180908": 15,
+      "20180909": 275,
+      "20180910": 460,
+      "20180911": 27
+    },
+    "gihubStars": 278,
+    "ownerRepo": "https://github.com/gruehle/MarkdownPreview"
+  },
+  "themesforbrackets": {
+    "metadata": {
+      "title": "Themes for Brackets",
+      "name": "themesforbrackets",
+      "author": {
+        "name": "Jacob Lauritzen",
+        "email": "jacsebl@hotmail.com"
+      },
+      "contributors": [
+        {
+          "name": "Eric Johnson",
+          "email": "wormeyman@gmail.com"
+        }
+      ],
+      "description": "Theme-pack that styles the whole editor!",
+      "version": "2.0.14",
+      "keywords": [
+        "themes",
+        "brackets",
+        "custom",
+        "highlight",
+        "skins"
+      ],
+      "homepage": "https://github.com/Jacse/themes-for-brackets",
+      "bugs": "https://github.com/Jacse/themes-for-brackets/issues",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/Jacse/themes-for-brackets.git"
+      },
+      "engines": {
+        "brackets": ">=1.0.0"
+      },
+      "categories": "visual"
+    },
+    "owner": "github:Jacse",
+    "versions": [
+      {
+        "version": "2.0.14",
+        "published": "2016-03-17T15:23:04.707Z",
+        "brackets": ">=1.0.0",
+        "downloads": 94678
+      }
+    ],
+    "totalDownloads": 310814,
+    "recent": {
+      "20180905": 78,
+      "20180906": 68,
+      "20180907": 87,
+      "20180908": 78,
+      "20180909": 1324,
+      "20180910": 1094,
+      "20180911": 109
+    },
+    "gihubStars": 188,
+    "ownerRepo": "https://github.com/Jacse/themes-for-brackets"
+  },
+  "angularui.angularjs": {
+    "metadata": {
+      "name": "angularui.angularjs",
+      "title": "AngularJS for Brackets",
+      "description": "AngularJS extension for Brackets by the AngularUI team",
+      "homepage": "https://github.com/angular-ui/AngularJS-brackets",
+      "version": "1.1.2",
+      "author": {
+        "name": "AngularUI",
+        "url": "http://angular-ui.github.io"
+      },
+      "license": "MIT",
+      "engines": {
+        "brackets": ">=0.34.0"
+      }
+    },
+    "owner": "github:ProLoser",
+    "versions": [
+      {
+        "version": "1.1.2",
+        "published": "2014-03-12T09:30:13.611Z",
+        "brackets": ">=0.34.0",
+        "downloads": 91012
+      }
+    ],
+    "totalDownloads": 100364,
+    "recent": {
+      "20180905": 14,
+      "20180906": 19,
+      "20180907": 15,
+      "20180908": 5,
+      "20180909": 224,
+      "20180910": 206,
+      "20180911": 21
+    },
+    "gihubStars": 215,
+    "ownerRepo": "https://github.com/angular-ui/AngularJS-brackets"
+  },
+  "brackets-php-syntax-hint": {
+    "metadata": {
+      "name": "brackets-php-syntax-hint",
+      "title": "PHP Syntax Hint",
+      "description": "PHP Syntax Hint is a plugin for Brackets, which will help you alot in writing php SYNTAX, MYSQL Queries as this will auto suggest Syntax while coding, within Brackets software. The best part of it is that if you want to write some words again and again, ju",
+      "homepage": "http://www.oslibrary.in/other-information-code/brackets-php-syntax-hint",
+      "version": "1.1.6",
+      "author": {
+        "name": "Ritesh Kumar Prakash",
+        "email": "riteshbksc@gmail.com",
+        "url": "https://www.oslibrary.in/"
+      },
+      "license": "MIT",
+      "engines": {
+        "brackets": ">=0.41.0"
+      }
+    },
+    "owner": "github:riteshbksc",
+    "versions": [
+      {
+        "version": "1.1.6",
+        "published": "2016-01-29T05:26:45.393Z",
+        "brackets": ">=0.41.0",
+        "downloads": 166209
+      }
+    ],
+    "totalDownloads": 296237,
+    "recent": {
+      "20180905": 152,
+      "20180906": 158,
+      "20180907": 121,
+      "20180908": 91,
+      "20180909": 2233,
+      "20180910": 2159,
+      "20180911": 187
+    },
+    "gihubStars": 0
+  },
+  "brackets-code-folding": {
+    "metadata": {
+      "title": "Code Folding",
+      "name": "brackets-code-folding",
+      "version": "0.3.5",
+      "author": {
+        "name": "Patrick Oladimeji",
+        "email": "patrick@dustygem.co.uk"
+      },
+      "description": "Brackets extension that provides simple code folding for files edited in brackets. Supports brace folding, tag folding, indent folding and multi-line comment folding",
+      "homepage": "https://github.com/thehogfather/brackets-code-folding",
+      "keywords": [
+        "code folding",
+        "code collapsing"
+      ],
+      "categories": [
+        "formatting",
+        "general",
+        "editing",
+        "visual"
+      ],
+      "i18n": [
+        "en",
+        "de",
+        "it",
+        "es",
+        "gl",
+        "fr",
+        "ru",
+        "jp",
+        "fi",
+        "nl",
+        "pt-br",
+        "tr"
+      ],
+      "engines": {
+        "brackets": "<1.4.0"
+      },
+      "contributors": [
+        {
+          "name": "Patrick Oladimeji",
+          "email": "thehogfather@dustygem.co.uk",
+          "url": "https://github.com/thehogfather"
+        },
+        {
+          "name": "Daniel Glazman",
+          "email": "daniel@glazman.org"
+        }
+      ],
+      "license": "MIT"
+    },
+    "owner": "github:thehogfather",
+    "versions": [
+      {
+        "version": "0.3.5",
+        "published": "2015-04-22T21:21:18.669Z",
+        "brackets": "<1.3.0",
+        "downloads": 18458
+      }
+    ],
+    "totalDownloads": 274286,
+    "recent": {
+      "20180901": 4,
+      "20180903": 3,
+      "20180905": 2,
+      "20180906": 4,
+      "20180907": 5,
+      "20180910": 8,
+      "20180911": 2
+    },
+    "gihubStars": 132,
+    "ownerRepo": "https://github.com/thehogfather/brackets-code-folding"
+  },
+  "camden.jshint": {
+    "metadata": {
+      "name": "camden.jshint",
+      "title": "JSHint",
+      "description": "Adds JSHint support to Brackets.",
+      "homepage": "https://github.com/cfjedimaster/brackets-jshint",
+      "version": "2.2.20",
+      "keywords": [
+        "lint",
+        "linting",
+        "linter"
+      ],
+      "categories": "linting",
+      "author": {
+        "name": "Raymond Camden",
+        "email": "raymondcamden@gmail.com",
+        "url": "http://www.raymondcamden.com"
+      },
+      "license": "MIT",
+      "engines": {
+        "brackets": ">=0.38.0"
+      }
+    },
+    "owner": "github:cfjedimaster",
+    "versions": [
+      {
+        "version": "2.2.20",
+        "published": "2016-12-29T14:04:12.921Z",
+        "brackets": ">=0.38.0",
+        "downloads": 58199
+      }
+    ],
+    "totalDownloads": 267893,
+    "recent": {
+      "20180905": 50,
+      "20180906": 36,
+      "20180907": 39,
+      "20180908": 44,
+      "20180909": 823,
+      "20180910": 833,
+      "20180911": 93
+    },
+    "gihubStars": 126,
+    "ownerRepo": "https://github.com/cfjedimaster/brackets-jshint"
+  },
+  "le717.html-skeleton": {
+    "metadata": {
+      "name": "le717.html-skeleton",
+      "version": "1.4.3",
+      "title": "HTML Skeleton",
+      "description": "Easily insert a variety of HTML elements into your document.",
+      "homepage": "https://github.com/le717/brackets-html-skeleton",
+      "author": {
+        "name": "Triangle717",
+        "url": "http://le717.github.io"
+      },
+      "license": "MIT",
+      "engines": {
+        "brackets": ">=0.44.0"
+      },
+      "keywords": [
+        "HTML",
+        "html",
+        "HTML Skeleton",
+        "code snippets"
+      ],
+      "categories": [
+        "snippets",
+        "codegen"
+      ],
+      "i18n": [
+        "en",
+        "de",
+        "it",
+        "tr"
+      ],
+      "main": "main.js",
+      "scripts": {
+        "test": "grunt lint"
+      },
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/le717/brackets-html-skeleton.git"
+      },
+      "devDependencies": {
+        "grunt": "^0.4.5",
+        "grunt-contrib-csslint": "^0.3.1",
+        "grunt-contrib-jshint": "^0.10.0",
+        "grunt-htmlhint": "^0.4.1",
+        "grunt-jscs": "^1.2.0",
+        "matchdep": "^0.3.0"
+      }
+    },
+    "owner": "github:le717",
+    "versions": [
+      {
+        "version": "1.4.3",
+        "published": "2015-08-10T14:56:54.707Z",
+        "brackets": ">=0.44.0",
+        "downloads": 143281
+      }
+    ],
+    "totalDownloads": 221408,
+    "recent": {
+      "20180905": 194,
+      "20180906": 218,
+      "20180907": 178,
+      "20180908": 133,
+      "20180909": 3124,
+      "20180910": 2931,
+      "20180911": 568
+    },
+    "gihubStars": 56,
+    "ownerRepo": "https://github.com/le717/brackets-html-skeleton"
+  },
+  "response-for-brackets": {
+    "metadata": {
+      "title": "Response for Brackets - original",
+      "name": "response-for-brackets",
+      "description": "Original Responsive design tool for Brackets from Lee Brimelow",
+      "keywords": [
+        "responsive",
+        "media",
+        "query",
+        "css"
+      ],
+      "version": "0.1.0",
+      "author": {
+        "name": "Ben Rooney"
+      },
+      "homepage": "https://github.com/brimelow/Response-for-Brackets",
+      "repository": {
+        "type": "ssh",
+        "url": "git@github.com:brimelow/Response-for-Brackets.git"
+      },
+      "engines": {
+        "brackets": ">=1.0.0"
+      }
+    },
+    "owner": "github:ikbenben",
+    "versions": [
+      {
+        "version": "0.1.0",
+        "published": "2015-01-11T00:30:18.047Z",
+        "brackets": ">=1.0.0",
+        "downloads": 28540
+      }
+    ],
+    "totalDownloads": 35786,
+    "recent": {
+      "20180905": 7,
+      "20180906": 6,
+      "20180907": 7,
+      "20180908": 8,
+      "20180909": 138,
+      "20180910": 63,
+      "20180911": 6
+    },
+    "gihubStars": 170,
+    "ownerRepo": "https://github.com/brimelow/Response-for-Brackets"
+  },
+  "brackets-vimderbar": {
+    "metadata": {
+      "name": "brackets-vimderbar",
+      "title": "Vimderbar",
+      "description": "Adds vim-like functionality & status bar to Brackets.",
+      "homepage": "https://github.com/daveosborne/brackets-vimderbar",
+      "version": "0.11.1",
+      "author": {
+        "name": "daveosborne",
+        "url": "https://github.com/daveosborne"
+      },
+      "contributors": [
+        {
+          "name": "fontface",
+          "url": "https://github.com/fontface"
+        }
+      ],
+      "license": "MIT",
+      "engines": {
+        "brackets": ">=1.1"
+      }
+    },
+    "owner": "github:daveosborne",
+    "versions": [
+      {
+        "version": "0.11.1",
+        "published": "2015-08-10T04:57:43.702Z",
+        "brackets": ">=1.1",
+        "downloads": 10233
+      }
+    ],
+    "totalDownloads": 20778,
+    "recent": {
+      "20180905": 2,
+      "20180906": 4,
+      "20180907": 4,
+      "20180908": 4,
+      "20180909": 133,
+      "20180910": 79,
+      "20180911": 15
+    },
+    "gihubStars": 149,
+    "ownerRepo": "https://github.com/daveosborne/brackets-vimderbar"
+  },
+  "dnbard.documents-toolbar": {
+    "metadata": {
+      "name": "dnbard.documents-toolbar",
+      "title": "Documents Toolbar",
+      "description": "Adds toolbar with tabs of open documents on the top of the editor. Now with split view support!",
+      "homepage": "https://github.com/dnbard/brackets-documents-toolbar",
+      "version": "0.5.22",
+      "author": {
+        "name": "Alex Bardanov"
+      },
+      "license": "MIT",
+      "engines": {
+        "brackets": ">=1.1.0"
+      },
+      "keywords": [
+        "document",
+        "toolbar",
+        "panel",
+        "file",
+        "tabs"
+      ]
+    },
+    "owner": "github:dnbard",
+    "versions": [
+      {
+        "version": "0.5.22",
+        "published": "2017-05-15T15:51:36.681Z",
+        "brackets": ">=1.1.0",
+        "downloads": 43967
+      }
+    ],
+    "totalDownloads": 213878,
+    "recent": {
+      "20180905": 62,
+      "20180906": 91,
+      "20180907": 45,
+      "20180908": 41,
+      "20180909": 689,
+      "20180910": 909,
+      "20180911": 142
+    },
+    "gihubStars": 67,
+    "ownerRepo": "https://github.com/dnbard/brackets-documents-toolbar"
+  },
+  "hirse.outline-list": {
+    "owner": "github:Hirse",
+    "recent": {
+      "20180905": 97,
+      "20180906": 89,
+      "20180907": 84,
+      "20180908": 66,
+      "20180909": 1418,
+      "20180910": 1200,
+      "20180911": 115
+    },
+    "metadata": {
+      "i18n": [
+        "ar",
+        "de",
+        "en",
+        "es",
+        "fr",
+        "ja",
+        "pl"
+      ],
+      "name": "hirse.outline-list",
+      "title": "Outline List",
+      "author": "Jan Pilzer (https://github.com/Hirse)",
+      "engines": {
+        "brackets": ">=1.8.0"
+      },
+      "license": "MIT",
+      "scripts": {
+        "lint": "eslint . && htmlhint -c .htmlhintrc templates && csslint --config=.csslintrc styles",
+        "test": "karma start --browsers jsdom --single-run",
+        "bundle": "npm pack && tar2zip hirse.outline-list-%npm_package_version%.tgz",
+        "pretest": "npm run lint",
+        "bundleBuild": "npm pack && tar2zip hirse.outline-list-$npm_package_version.tgz"
+      },
+      "version": "1.6.0",
+      "homepage": "https://github.com/Hirse/brackets-outline-list",
+      "keywords": [
+        "brackets-extension",
+        "outline",
+        "CSS",
+        "CoffeeScript",
+        "HTML",
+        "Haxe",
+        "Jade",
+        "JavaScript",
+        "JSX",
+        "LESS",
+        "Markdown",
+        "PHP",
+        "Python",
+        "Ruby",
+        "SCSS",
+        "SVG",
+        "Stylus",
+        "XML"
+      ],
+      "repository": "Hirse/brackets-outline-list",
+      "description": "Displays a list of the functions or definitions in the currently opened document. Works with CSS, CoffeeScript, HTML, Haxe, Jade, JavaScript, JSX, LESS, Markdown, PHP, Python, Ruby, SCSS, SVG, Stylus, and XML.",
+      "devDependencies": {
+        "jsdom": "22.x.x",
+        "karma": "6.x.x",
+        "eslint": "8.x.x",
+        "csslint": "1.x.x",
+        "htmlhint": "1.x.x",
+        "requirejs": "2.x.x",
+        "tar-to-zip": "3.x.x",
+        "jasmine-core": "5.x.x",
+        "karma-jasmine": "5.x.x",
+        "karma-coverage": "2.x.x",
+        "requirejs-text": "2.x.x",
+        "karma-requirejs": "1.x.x",
+        "karma-jsdom-launcher": "15.x.x",
+        "karma-chrome-launcher": "3.x.x"
+      }
+    },
+    "versions": [
+      {
+        "version": "1.6.0",
+        "brackets": ">=1.8.0",
+        "downloads": 0,
+        "published": "2023-08-12T22:10:11.040Z"
+      }
+    ],
+    "ownerRepo": "https://github.com/Hirse/brackets-outline-list",
+    "gihubStars": 82,
+    "EXTENSION_ID": "hirse.outline-list",
+    "totalDownloads": 207948,
+    "ownershipVerifiedByGitHub": null
+  },
+  "brackets-wakatime": {
+    "metadata": {
+      "name": "brackets-wakatime",
+      "title": "WakaTime",
+      "description": "Automatic time tracking and metrics about your programming.",
+      "homepage": "https://github.com/wakatime/brackets-wakatime",
+      "version": "1.0.8",
+      "author": {
+        "name": "WakaTime.com"
+      },
+      "license": "BSD",
+      "engines": {
+        "brackets": ">=0.24.0"
+      }
+    },
+    "owner": "github:alanhamlett",
+    "versions": [
+      {
+        "version": "1.0.8",
+        "published": "2016-12-23T16:19:36.014Z",
+        "brackets": ">=0.24.0",
+        "downloads": 5015
+      }
+    ],
+    "totalDownloads": 16819,
+    "recent": {
+      "20180903": 4,
+      "20180904": 9,
+      "20180905": 2,
+      "20180907": 1,
+      "20180908": 3,
+      "20180909": 54,
+      "20180910": 59
+    },
+    "gihubStars": 142,
+    "ownerRepo": "https://github.com/wakatime/brackets-wakatime"
+  },
+  "mikaeljorhult.brackets-todo": {
+    "metadata": {
+      "name": "mikaeljorhult.brackets-todo",
+      "title": "Todo",
+      "description": "Display all TODO comments in current document or project.",
+      "homepage": "https://github.com/mikaeljorhult/brackets-todo",
+      "version": "0.9.7",
+      "author": {
+        "name": "Mikael Jorhult",
+        "email": "mikael@jorhult.se",
+        "url": "http://jorhult.se"
+      },
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/mikaeljorhult/brackets-todo"
+      },
+      "license": "MIT",
+      "engines": {
+        "brackets": ">=1.11.0"
+      },
+      "i18n": [
+        "de",
+        "en",
+        "es",
+        "fi",
+        "fr",
+        "gl",
+        "it",
+        "ru",
+        "sv",
+        "tr",
+        "uk",
+        "zh"
+      ],
+      "scripts": {
+        "test": "./node_modules/.bin/eslint . --ext .js"
+      },
+      "devDependencies": {
+        "eslint": "^3.19.0",
+        "eslint-config-standard": "^10.2.1",
+        "eslint-plugin-import": "^2.2.0",
+        "eslint-plugin-node": "^4.2.2",
+        "eslint-plugin-promise": "^3.5.0",
+        "eslint-plugin-standard": "^3.0.1"
+      }
+    },
+    "owner": "github:mikaeljorhult",
+    "versions": [
+      {
+        "version": "0.9.7",
+        "published": "2017-10-04T20:19:18.033Z",
+        "brackets": ">=1.11.0",
+        "downloads": 21972
+      }
+    ],
+    "totalDownloads": 132590,
+    "recent": {
+      "20180905": 56,
+      "20180906": 49,
+      "20180907": 34,
+      "20180908": 25,
+      "20180909": 910,
+      "20180910": 812,
+      "20180911": 80
+    },
+    "gihubStars": 139,
+    "ownerRepo": "https://github.com/mikaeljorhult/brackets-todo"
+  },
+  "rain.monokai-dark-soda": {
+    "metadata": {
+      "title": "Monokai Dark Soda",
+      "name": "rain.monokai-dark-soda",
+      "description": "Dark theme based on Dark Soda and Monokai color schemes.",
+      "version": "1.0.9",
+      "author": {
+        "name": "rain",
+        "url": "https://github.com/rainje"
+      },
+      "homepage": "https://github.com/rainje/Monokai-Dark-Soda",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/rainje/Monokai-Dark-Soda.git"
+      },
+      "license": "MIT",
+      "engines": {
+        "brackets": ">=1.3.0"
+      },
+      "theme": {
+        "file": "main.min.css",
+        "dark": true
+      },
+      "keywords": [
+        "theme",
+        "monokai",
+        "dark",
+        "soda",
+        "sublime",
+        "text",
+        "fork",
+        "extension",
+        "css"
+      ]
+    },
+    "owner": "github:rainje",
+    "versions": [
+      {
+        "version": "1.0.9",
+        "published": "2015-11-02T21:29:32.639Z",
+        "brackets": ">=1.3.0",
+        "downloads": 102206
+      }
+    ],
+    "totalDownloads": 185889,
+    "recent": {
+      "20180905": 116,
+      "20180906": 109,
+      "20180907": 87,
+      "20180908": 78,
+      "20180909": 1784,
+      "20180910": 2055,
+      "20180911": 227
+    },
+    "gihubStars": 49,
+    "ownerRepo": "https://github.com/rainje/Monokai-Dark-Soda"
+  },
+  "themes": {
+    "metadata": {
+      "title": "Themes",
+      "name": "themes",
+      "description": "CodeMirror and custom themes in Brackets",
+      "version": "2.0.6",
+      "author": {
+        "name": "Miguel Castillo"
+      },
+      "email": "manchagnu@gmail.com",
+      "homepage": "https://github.com/MiguelCastillo/Brackets-Themes",
+      "keywords": [
+        "themes"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/MiguelCastillo/Brackets-Themes.git"
+      },
+      "engines": {
+        "brackets": ">=0.43.0"
+      }
+    },
+    "owner": "github:MiguelCastillo",
+    "versions": [
+      {
+        "version": "2.0.6",
+        "published": "2016-02-24T04:03:30.334Z",
+        "brackets": ">=0.43.0",
+        "downloads": 24757
+      }
+    ],
+    "totalDownloads": 126358,
+    "recent": {
+      "20180905": 18,
+      "20180906": 16,
+      "20180907": 16,
+      "20180908": 9,
+      "20180909": 165,
+      "20180910": 200,
+      "20180911": 11
+    },
+    "gihubStars": 136,
+    "ownerRepo": "https://github.com/MiguelCastillo/Brackets-Themes"
+  },
+  "talmand.html-templates": {
+    "metadata": {
+      "name": "talmand.html-templates",
+      "title": "HTML Templates",
+      "description": "Inserts HTML from a pre-made list of templates.",
+      "homepage": "https://github.com/talmand/Brackets-HTML-Templates",
+      "version": "1.3.5",
+      "author": {
+        "name": "Travis Almand"
+      },
+      "i18n": [
+        "en",
+        "it",
+        "es",
+        "de",
+        "zh-cn"
+      ],
+      "engines": {
+        "brackets": ">=1.0.0"
+      }
+    },
+    "owner": "github:talmand",
+    "versions": [
+      {
+        "version": "1.3.5",
+        "published": "2015-07-15T05:11:29.790Z",
+        "brackets": ">=1.0.0",
+        "downloads": 96968
+      }
+    ],
+    "totalDownloads": 183660,
+    "recent": {
+      "20180905": 34,
+      "20180906": 37,
+      "20180907": 33,
+      "20180908": 23,
+      "20180909": 901,
+      "20180910": 578,
+      "20180911": 51
+    },
+    "gihubStars": 56,
+    "ownerRepo": "https://github.com/talmand/Brackets-HTML-Templates"
+  },
+  "brackets-lorem-ipsum": {
+    "metadata": {
+      "name": "brackets-lorem-ipsum",
+      "title": "Lorem Ipsum",
+      "version": "1.2.1",
+      "description": "Generates Lorem Ipsum text automatically in any Brackets document.",
+      "homepage": "https://github.com/lkcampbell/brackets-lorem-ipsum",
+      "author": {
+        "name": "Lance Campbell",
+        "url": "https://github.com/lkcampbell"
+      },
+      "license": "MIT",
+      "categories": "snippets",
+      "keywords": [
+        "text",
+        "generator"
+      ],
+      "engines": {
+        "brackets": ">=1.8.0"
+      }
+    },
+    "owner": "github:lkcampbell",
+    "versions": [
+      {
+        "version": "1.2.1",
+        "published": "2017-05-07T15:17:42.486Z",
+        "brackets": ">=1.8.0",
+        "downloads": 67985
+      }
+    ],
+    "totalDownloads": 182375,
+    "recent": {
+      "20180905": 100,
+      "20180906": 138,
+      "20180907": 106,
+      "20180908": 78,
+      "20180909": 1901,
+      "20180910": 1802,
+      "20180911": 133
+    },
+    "gihubStars": 84,
+    "ownerRepo": "https://github.com/lkcampbell/brackets-lorem-ipsum"
+  },
+  "mackenza.php-smarthints": {
+    "metadata": {
+      "name": "mackenza.php-smarthints",
+      "title": "PHP SmartHints",
+      "description": "Provides code hints for PHP files including PHP keywords, built-in functions, constants and variables.  Also provides hinting for variables in the current open PHP document. Note that this is a continuation of the former [PHP-SIG] Brackets-PHP-SmartHints a",
+      "homepage": "https://github.com/mackenza/Brackets-PHP-SmartHints",
+      "version": "1.2.2",
+      "author": {
+        "name": "Andrew MacKenzie",
+        "email": "a.mackenzie@gmail.com",
+        "url": "https://github.com/mackenza"
+      },
+      "license": "MIT",
+      "engines": {
+        "brackets": ">=1.0.0"
+      },
+      "i18n": [
+        "en",
+        "de",
+        "it",
+        "fr"
+      ]
+    },
+    "owner": "github:Brackets-PHP",
+    "versions": [
+      {
+        "version": "1.2.2",
+        "published": "2015-07-08T00:19:30.652Z",
+        "brackets": ">=1.0.0",
+        "downloads": 128512
+      }
+    ],
+    "totalDownloads": 170280,
+    "recent": {
+      "20180905": 139,
+      "20180906": 98,
+      "20180907": 82,
+      "20180908": 71,
+      "20180909": 1307,
+      "20180910": 1580,
+      "20180911": 180
+    },
+    "gihubStars": 93,
+    "ownerRepo": "https://github.com/mackenza/Brackets-PHP-SmartHints"
+  },
+  "jrowny.brackets.snippets": {
+    "metadata": {
+      "name": "jrowny.brackets.snippets",
+      "title": "Brackets Snippets",
+      "description": "Provides ability to use code snippets in Brackets.",
+      "homepage": "https://github.com/jrowny/brackets-snippets",
+      "license": "MIT",
+      "author": {
+        "name": "Jonathan Rowny"
+      },
+      "version": "1.1.0",
+      "engines": {
+        "brackets": ">=0.36"
+      },
+      "devDependencies": {
+        "grunt": "latest",
+        "grunt-contrib-jshint": "latest"
+      }
+    },
+    "owner": "github:jrowny",
+    "versions": [
+      {
+        "version": "1.1.0",
+        "published": "2014-03-14T15:51:03.320Z",
+        "brackets": ">=0.36",
+        "downloads": 42546
+      }
+    ],
+    "totalDownloads": 52284,
+    "recent": {
+      "20180905": 11,
+      "20180906": 12,
+      "20180907": 14,
+      "20180908": 14,
+      "20180909": 132,
+      "20180910": 214,
+      "20180911": 51
+    },
+    "gihubStars": 129,
+    "ownerRepo": "https://github.com/jrowny/brackets-snippets"
+  },
+  "martypenner.autosave-files-on-window-blur": {
+    "metadata": {
+      "name": "martypenner.autosave-files-on-window-blur",
+      "title": "Autosave Files on Window Blur",
+      "description": "Autosave all open files when switching applications, in the style of PHPStorm/WebStorm.",
+      "homepage": "https://github.com/martypenner/brackets-autosave-files-on-window-blur",
+      "version": "1.0.7",
+      "author": {
+        "name": "Marty Penner",
+        "email": "penner.marty@gmail.com"
+      },
+      "license": "MIT",
+      "engines": {
+        "brackets": ">=0.34.0"
+      }
+    },
+    "owner": "github:martypenner",
+    "versions": [
+      {
+        "version": "1.0.7",
+        "published": "2019-05-15T14:42:11.290Z",
+        "brackets": ">=0.34.0"
+      }
+    ],
+    "totalDownloads": 157385,
+    "recent": {
+      "20180905": 204,
+      "20180906": 205,
+      "20180907": 198,
+      "20180908": 166,
+      "20180909": 3754,
+      "20180910": 3720,
+      "20180911": 299
+    },
+    "gihubStars": 35,
+    "ownerRepo": "https://github.com/martypenner/brackets-autosave-files-on-window-blur"
+  },
+  "visual-studio-theme": {
+    "metadata": {
+      "title": "Visual Studio Theme",
+      "name": "visual-studio-theme",
+      "description": "Visual Studio Theme for Brackets",
+      "version": "0.0.1",
+      "author": {
+        "name": "Miguel Castillo",
+        "email": "mahchagnu@gmail.com"
+      },
+      "homepage": "https://github.com/Brackets-Themes/VisualStudio",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/Brackets-Themes/VisualStudio.git"
+      },
+      "engines": {
+        "brackets": ">=0.38.0"
+      },
+      "theme": "visual-studio.css",
+      "screenshot": "screenshot.png"
+    },
+    "owner": "github:MiguelCastillo",
+    "versions": [
+      {
+        "version": "0.0.1",
+        "published": "2014-06-07T12:33:37.307Z",
+        "brackets": ">=0.38.0",
+        "downloads": 24462
+      }
+    ],
+    "totalDownloads": 25286,
+    "recent": {
+      "20180905": 4,
+      "20180906": 16,
+      "20180907": 11,
+      "20180908": 7,
+      "20180909": 212,
+      "20180910": 99,
+      "20180911": 13
+    },
+    "gihubStars": 8,
+    "ownerRepo": "https://github.com/Brackets-Themes/VisualStudio"
+  },
+  "fthiagogv.naturegreen-dark-syntax": {
+    "metadata": {
+      "name": "fthiagogv.naturegreen-dark-syntax",
+      "title": "Naturegreen Dark",
+      "theme": "syntax",
+      "version": "0.0.2",
+      "author": {
+        "name": "Thiago Gomes",
+        "email": "ftgomesvieira@outlook.com"
+      },
+      "description": "Nature green syntax theme is a fork of One-dark-syntax. Colors were changed to the green colors affinities.",
+      "keywords": [
+        "nature",
+        "green",
+        "dark",
+        "syntax"
+      ],
+      "repository": "https://github.com/fthiagogv/naturegreen-dark-syntax",
+      "license": "MIT",
+      "engines": {
+        "atom": ">=1.0.0 < 2.0.0"
+      }
+    },
+    "owner": "github:fthiagogv",
+    "versions": [
+      {
+        "version": "0.0.2",
+        "published": "2015-07-01T20:27:24.508Z",
+        "downloads": 4007
+      }
+    ],
+    "totalDownloads": 4050,
+    "recent": {
+      "20180902": 2,
+      "20180903": 1,
+      "20180904": 1,
+      "20180908": 2,
+      "20180909": 26,
+      "20180910": 24,
+      "20180911": 4
+    },
+    "gihubStars": 0
+  },
+  "new-moon": {
+    "metadata": {
+      "title": "New Moon",
+      "name": "new-moon",
+      "description": "New Moon Theme for Brackets. A beautiful, middle-contrast dark theme optimized for web development. Your new favorite theme.",
+      "version": "2.5.0",
+      "author": {
+        "name": "Tania Rascia",
+        "email": "taniarascia@gmail.com",
+        "url": "https://www.taniarascia.com"
+      },
+      "homepage": "https://github.com/taniarascia/new-moon-brackets",
+      "license": "MIT",
+      "keywords": [
+        "theme",
+        "dark",
+        "php",
+        "html",
+        "css"
+      ],
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/taniarascia/new-moon-brackets.git"
+      },
+      "theme": {
+        "file": "main.less",
+        "dark": true
+      },
+      "screenshot": "images/screenshot.png"
+    },
+    "owner": "github:taniarascia",
+    "versions": [
+      {
+        "version": "2.5.0",
+        "published": "2019-02-28T12:58:33.877Z"
+      }
+    ],
+    "totalDownloads": 137423,
+    "recent": {
+      "20180905": 69,
+      "20180906": 78,
+      "20180907": 74,
+      "20180908": 53,
+      "20180909": 1351,
+      "20180910": 1366,
+      "20180911": 182
+    },
+    "gihubStars": 23,
+    "ownerRepo": "https://github.com/taniarascia/new-moon-brackets"
+  },
+  "monokai-theme": {
+    "metadata": {
+      "title": "Monokai",
+      "name": "monokai-theme",
+      "description": "This dark theme is based on the monokai color scheme from Sublime Text.",
+      "version": "1.0.8",
+      "author": {
+        "name": "Steffen Bruchmann",
+        "email": "hi@sbruchmann.me",
+        "url": "http://sbruchmann.me/"
+      },
+      "homepage": "https://github.com/Brackets-Themes/Monokai",
+      "repository": {
+        "type": "git",
+        "url": "git@github.com:Brackets-Theme/Monokai.git"
+      },
+      "license": "MIT",
+      "engines": {
+        "brackets": ">=1.0.0"
+      },
+      "theme": {
+        "file": "theme.css",
+        "dark": true
+      }
+    },
+    "owner": "github:sbruchmann",
+    "versions": [
+      {
+        "version": "1.0.8",
+        "published": "2015-01-02T16:37:20.748Z",
+        "brackets": ">=1.0.0",
+        "downloads": 95914
+      }
+    ],
+    "totalDownloads": 116553,
+    "recent": {
+      "20180905": 74,
+      "20180906": 63,
+      "20180907": 65,
+      "20180908": 44,
+      "20180909": 1221,
+      "20180910": 1567,
+      "20180911": 61
+    },
+    "gihubStars": 42,
+    "ownerRepo": "https://github.com/Brackets-Themes/Monokai"
+  },
+  "visual-studio-dark": {
+    "metadata": {
+      "title": "Visual Studio Dark",
+      "name": "visual-studio-dark",
+      "description": "Visual Studio Dark theme for Brackets. Has language specific syntax colouring by using addModeClass=true.",
+      "version": "1.1.5",
+      "author": {
+        "name": "Fergal Doyle",
+        "email": "fergal_doyle@yahoo.com"
+      },
+      "homepage": "https://github.com/fergaldoyle/brackets-visual-studio-dark",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/fergaldoyle/brackets-visual-studio-dark"
+      },
+      "keywords": [
+        "extension",
+        "brackets",
+        "dark",
+        "theme"
+      ],
+      "theme": {
+        "file": "theme/main.less",
+        "dark": true,
+        "addModeClass": true
+      },
+      "engines": {
+        "brackets": ">=1.1.0"
+      }
+    },
+    "owner": "github:fergaldoyle",
+    "versions": [
+      {
+        "version": "1.1.5",
+        "published": "2017-04-16T19:24:06.104Z",
+        "brackets": ">=1.1.0",
+        "downloads": 35273
+      }
+    ],
+    "totalDownloads": 81768,
+    "recent": {
+      "20180905": 56,
+      "20180906": 55,
+      "20180907": 54,
+      "20180908": 48,
+      "20180909": 1056,
+      "20180910": 706,
+      "20180911": 88
+    },
+    "gihubStars": 16,
+    "ownerRepo": "https://github.com/fergaldoyle/brackets-visual-studio-dark"
+  },
+  "dark_soda_theme": {
+    "metadata": {
+      "title": "DarkSoda",
+      "name": "dark_soda_theme",
+      "description": "The DarkSoda is a Theme for Brackets!",
+      "version": "0.1.6",
+      "author": {
+        "name": "Denisov21"
+      },
+      "homepage": "https://github.com/Brackets-Themes/DarkSoda",
+      "repository": {
+        "type": "git",
+        "url": "git@github.com:Brackets-Themes/DarkSoda.git"
+      },
+      "license": "MIT",
+      "engines": {
+        "brackets": ">=1.3.0"
+      },
+      "theme": {
+        "file": "dark-soda.css",
+        "dark": true
+      }
+    },
+    "owner": "github:Denisov21",
+    "versions": [
+      {
+        "version": "0.1.6",
+        "published": "2015-04-28T08:10:28.420Z",
+        "brackets": ">=1.3.0",
+        "downloads": 44708
+      }
+    ],
+    "totalDownloads": 68281,
+    "recent": {
+      "20180905": 34,
+      "20180906": 37,
+      "20180907": 34,
+      "20180908": 17,
+      "20180909": 762,
+      "20180910": 454,
+      "20180911": 50
+    },
+    "gihubStars": 11,
+    "ownerRepo": "https://github.com/Brackets-Themes/DarkSoda"
+  },
+  "raven": {
+    "metadata": {
+      "name": "raven",
+      "title": "Raven",
+      "description": "Dark color scheme based on Dreamweaver CC's Raven theme. Now with better preprocessor support.",
+      "homepage": "https://github.com/JTruax/brackets-theme-raven.git",
+      "version": "1.0.7",
+      "author": {
+        "name": "Justin Truax",
+        "url": "http://justintruax.com"
+      },
+      "license": "MIT",
+      "theme": {
+        "file": "theme.less",
+        "dark": true,
+        "addModeClass": true
+      },
+      "keywords": [
+        "dreamweaver",
+        "raven",
+        "dark",
+        "theme",
+        "flat",
+        "highlighting",
+        "preprocessor",
+        "color mode"
+      ]
+    },
+    "owner": "github:JTruax",
+    "versions": [
+      {
+        "version": "1.0.7",
+        "published": "2017-03-31T19:00:31.352Z",
+        "downloads": 21288
+      }
+    ],
+    "totalDownloads": 58363,
+    "recent": {
+      "20180905": 20,
+      "20180906": 26,
+      "20180907": 12,
+      "20180908": 16,
+      "20180909": 459,
+      "20180910": 313,
+      "20180911": 32
+    },
+    "gihubStars": 0
+  },
+  "dustindowell.neon": {
+    "metadata": {
+      "name": "dustindowell.neon",
+      "title": "Neon",
+      "description": "A cool, bright and sleek theme. Themed Code Folding and CSS Color Preview.",
+      "homepage": "https://github.com/dustindowell22/neon-brackets-theme",
+      "version": "1.1.8",
+      "author": {
+        "name": "Dustin Dowell",
+        "url": "https://github.com/dustindowell22"
+      },
+      "license": "MIT",
+      "theme": {
+        "file": "theme.less",
+        "dark": true
+      },
+      "engines": {
+        "brackets": ">=1.0.0"
+      },
+      "keywords": [
+        "theme",
+        "neon",
+        "dark"
+      ]
+    },
+    "owner": "github:dustindowell22",
+    "versions": [
+      {
+        "version": "1.1.8",
+        "published": "2015-06-18T20:54:21.847Z",
+        "brackets": ">=1.0.0",
+        "downloads": 20446
+      }
+    ],
+    "totalDownloads": 49672,
+    "recent": {
+      "20180905": 27,
+      "20180906": 14,
+      "20180907": 15,
+      "20180908": 9,
+      "20180909": 346,
+      "20180910": 269,
+      "20180911": 21
+    },
+    "gihubStars": 5,
+    "ownerRepo": "https://github.com/dustindowell22/neon-brackets-theme"
+  },
+  "quick-dark": {
+    "metadata": {
+      "title": "Quick Dark",
+      "name": "quick-dark",
+      "description": "A dark theme (based on Easy Dark) that makes your code pretty and readable.",
+      "keywords": [
+        "dark",
+        "theme",
+        "quick"
+      ],
+      "homepage": "https://github.com/cheesypoof/QuickDark",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/cheesypoof/QuickDark.git"
+      },
+      "bugs": {
+        "url": "https://github.com/cheesypoof/QuickDark/issues"
+      },
+      "author": {
+        "name": "cheesypoof",
+        "url": "https://github.com/cheesypoof"
+      },
+      "theme": {
+        "file": "main.less",
+        "dark": true
+      },
+      "engines": {
+        "brackets": ">=1.0.0"
+      },
+      "version": "1.1.6"
+    },
+    "owner": "github:cheesypoof",
+    "versions": [
+      {
+        "version": "1.1.6",
+        "published": "2015-06-19T09:47:53.277Z",
+        "brackets": ">=1.0.0",
+        "downloads": 19219
+      }
+    ],
+    "totalDownloads": 47919,
+    "recent": {
+      "20180905": 14,
+      "20180906": 10,
+      "20180907": 12,
+      "20180908": 10,
+      "20180909": 266,
+      "20180910": 198,
+      "20180911": 23
+    },
+    "gihubStars": 12,
+    "ownerRepo": "https://github.com/cheesypoof/QuickDark"
+  },
+  "sweet-dark": {
+    "metadata": {
+      "name": "sweet-dark",
+      "title": "Sweet Dark",
+      "description": "A beautiful dark theme for Brackets, which makes your code nice and highly readable.",
+      "homepage": "https://github.com/smrlo/sweet-dark",
+      "version": "1.0.3",
+      "author": {
+        "name": "SM",
+        "url": "https://github.com/smrlo"
+      },
+      "license": "MIT",
+      "theme": {
+        "file": "theme.less",
+        "dark": true,
+        "addModeClass": true
+      },
+      "keywords": [
+        "theme",
+        "dark",
+        "html",
+        "css",
+        "js",
+        "javascript",
+        "readability"
+      ],
+      "screenshot": "screenshots/html.png"
+    },
+    "owner": "github:smrlo",
+    "versions": [
+      {
+        "version": "1.0.3",
+        "published": "2018-12-10T18:18:16.549Z"
+      }
+    ],
+    "totalDownloads": 47596,
+    "recent": {
+      "20180905": 387,
+      "20180906": 398,
+      "20180907": 309,
+      "20180908": 210,
+      "20180909": 4958,
+      "20180910": 4661,
+      "20180911": 489
+    },
+    "gihubStars": 13,
+    "ownerRepo": "https://github.com/smrlo/sweet-dark"
+  },
+  "fixthecode": {
+    "metadata": {
+      "name": "fixthecode",
+      "title": "FixTheCode",
+      "description": "A simple theme for people who love light colours",
+      "homepage": "https://github.com/99xt/FixTheCode.git",
+      "version": "1.2.9",
+      "author": {
+        "name": "Raashid A.",
+        "email": "raashid@wezile.com",
+        "url": "https://github.com/raashidA"
+      },
+      "license": "MIT",
+      "theme": {
+        "file": "theme.css",
+        "dark": true,
+        "addModeClass": true
+      },
+      "keywords": [
+        "theme"
+      ]
+    },
+    "owner": "github:raashidA",
+    "versions": [
+      {
+        "version": "1.2.9",
+        "published": "2018-02-06T07:28:40.196Z",
+        "downloads": 11765
+      }
+    ],
+    "totalDownloads": 47495,
+    "recent": {
+      "20180905": 28,
+      "20180906": 25,
+      "20180907": 20,
+      "20180908": 24,
+      "20180909": 450,
+      "20180910": 306,
+      "20180911": 63
+    },
+    "gihubStars": 0
+  },
+  "delkos": {
+    "metadata": {
+      "title": "Delkos Dark Theme",
+      "name": "delkos",
+      "description": "A dark, elegant, easy readable theme.",
+      "version": "0.0.5",
+      "author": {
+        "name": "David S�������������������������������������������������������������������������������������������������������������������������"
+      },
+      "license": "MIT",
+      "homepage": "https://github.com/David5i6/Brackets-Delkos-Dark-Theme",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/David5i6/Brackets-Delkos-Dark-Theme.git"
+      },
+      "engines": {
+        "brackets": ">=0.42.0"
+      },
+      "theme": {
+        "file": "delkos.css",
+        "dark": true
+      }
+    },
+    "owner": "github:David5i6",
+    "versions": [
+      {
+        "version": "0.0.5",
+        "published": "2016-04-10T16:51:10.123Z",
+        "brackets": ">=0.42.0",
+        "downloads": 32946
+      }
+    ],
+    "totalDownloads": 47061,
+    "recent": {
+      "20180905": 19,
+      "20180906": 15,
+      "20180907": 9,
+      "20180908": 10,
+      "20180909": 396,
+      "20180910": 129,
+      "20180911": 6
+    },
+    "gihubStars": 50,
+    "ownerRepo": "https://github.com/David5i6/Brackets-Delkos-Dark-Theme"
+  },
+  "dark-revolution": {
+    "metadata": {
+      "title": "Dark Revolution",
+      "name": "dark-revolution",
+      "description": "A dark theme based on Brackets Dark.",
+      "version": "1.9.1",
+      "author": {
+        "name": "af009",
+        "email": "afwebd@yahoo.com"
+      },
+      "homepage": "https://github.com/af009/dark-revolution",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/af009/dark-revolution"
+      },
+      "license": "MIT",
+      "theme": {
+        "file": "theme.less",
+        "dark": true,
+        "addModeClass": true
+      },
+      "keywords": [
+        "theme",
+        "dark",
+        "css",
+        "javascript",
+        "php",
+        "vue",
+        "jsx",
+        "react"
+      ]
+    },
+    "owner": "github:af009",
+    "versions": [
+      {
+        "version": "1.9.1",
+        "published": "2018-06-14T20:14:33.612Z",
+        "downloads": 20739
+      }
+    ],
+    "totalDownloads": 47005,
+    "recent": {
+      "20180905": 115,
+      "20180906": 119,
+      "20180907": 108,
+      "20180908": 85,
+      "20180909": 2005,
+      "20180910": 1569,
+      "20180911": 136
+    },
+    "gihubStars": 4,
+    "ownerRepo": "https://github.com/af009/dark-revolution"
+  },
+  "earth": {
+    "metadata": {
+      "title": "Earth",
+      "name": "earth",
+      "description": "The Earth Dark Theme for Brackets!",
+      "version": "0.2.7",
+      "author": {
+        "name": "Denisov21"
+      },
+      "homepage": "https://github.com/Brackets-Themes/Earth",
+      "repository": {
+        "type": "git",
+        "url": "git@github.com:Brackets-Themes/Earth.git"
+      },
+      "license": "MIT",
+      "engines": {
+        "brackets": ">=1.3.0"
+      },
+      "theme": {
+        "file": "earth.css",
+        "dark": true
+      },
+      "screenshot": "JS.png"
+    },
+    "owner": "github:Denisov21",
+    "versions": [
+      {
+        "version": "0.2.7",
+        "published": "2016-05-19T19:33:21.582Z",
+        "brackets": ">=1.3.0",
+        "downloads": 18354
+      }
+    ],
+    "totalDownloads": 43078,
+    "recent": {
+      "20180905": 14,
+      "20180906": 9,
+      "20180907": 14,
+      "20180908": 14,
+      "20180909": 84,
+      "20180910": 235,
+      "20180911": 24
+    },
+    "gihubStars": 5,
+    "ownerRepo": "https://github.com/Brackets-Themes/Earth"
+  },
+  "brackets-material-dark-theme": {
+    "metadata": {
+      "name": "brackets-material-dark-theme",
+      "title": "Material Theme (Dark)",
+      "description": "Material Theme (Dark) for Brackets",
+      "homepage": "https://github.com/naderi/material-theme-for-brackets",
+      "version": "1.1.0",
+      "author": {
+        "name": "Ali Naderi",
+        "url": "https://github.com/naderi"
+      },
+      "license": "MIT",
+      "theme": {
+        "file": "theme.less",
+        "dark": true,
+        "addModeClass": true
+      },
+      "keywords": [
+        "theme",
+        "material",
+        "dark"
+      ]
+    },
+    "owner": "github:naderi",
+    "versions": [
+      {
+        "version": "1.1.0",
+        "published": "2017-03-21T16:37:07.527Z",
+        "downloads": 26210
+      }
+    ],
+    "recent": {
+      "20180905": 9,
+      "20180906": 31,
+      "20180907": 16,
+      "20180908": 16,
+      "20180909": 265,
+      "20180910": 230,
+      "20180911": 14
+    },
+    "totalDownloads": 40168,
+    "gihubStars": 11,
+    "ownerRepo": "https://github.com/naderi/material-theme-for-brackets"
+  },
+  "monokai-corail-ur": {
+    "metadata": {
+      "title": "Monokai Corail UR Theme",
+      "name": "monokai-corail-ur",
+      "description": "Dark theme, black background. For all languages (.cm-variable and .cm-property colors are inversed), specially PHP (background for .cm-meta).",
+      "version": "1.2.8",
+      "author": {
+        "name": "GUAM23",
+        "url": "https://github.com/GUAM23"
+      },
+      "homepage": "https://github.com/GUAM23/monokai-corail-ur",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/GUAM23/monokai-corail-ur.git"
+      },
+      "license": "MIT",
+      "engines": {
+        "brackets": ">=1.3.0"
+      },
+      "theme": {
+        "file": "main.min.css",
+        "dark": true
+      },
+      "keywords": [
+        "theme",
+        "monokai",
+        "corail",
+        "dark",
+        "font"
+      ]
+    },
+    "owner": "github:GUAM23",
+    "versions": [
+      {
+        "version": "1.2.8",
+        "published": "2018-04-20T09:23:24.945Z",
+        "brackets": ">=1.3.0",
+        "downloads": 14528
+      }
+    ],
+    "totalDownloads": 39418,
+    "recent": {
+      "20180905": 54,
+      "20180906": 53,
+      "20180907": 56,
+      "20180908": 42,
+      "20180909": 1053,
+      "20180910": 999,
+      "20180911": 82
+    },
+    "gihubStars": 0,
+    "ownerRepo": "https://github.com/GUAM23/monokai-corail-ur"
+  },
+  "stripper-theme": {
+    "metadata": {
+      "title": "Stripper",
+      "name": "stripper-theme",
+      "description": "A brackets theme focused on readabiity.",
+      "version": "0.1.1",
+      "author": {
+        "name": "Bruce McElroy",
+        "email": "bruce.mcelroy@gmail.com"
+      },
+      "homepage": "https://github.com/visualbam/Brackets-Stripper",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/Visualbam/Brackets-Stripper"
+      },
+      "license": "MIT",
+      "engines": {
+        "brackets": ">=1.1.0"
+      },
+      "theme": {
+        "file": "theme.css",
+        "dark": true
+      }
+    },
+    "owner": "github:Visualbam",
+    "versions": [
+      {
+        "version": "0.1.1",
+        "published": "2015-09-29T16:20:20.506Z",
+        "brackets": ">=1.1.0",
+        "downloads": 13241
+      }
+    ],
+    "totalDownloads": 25721,
+    "recent": {
+      "20180905": 9,
+      "20180906": 7,
+      "20180907": 4,
+      "20180908": 3,
+      "20180909": 26,
+      "20180910": 51,
+      "20180911": 7
+    },
+    "gihubStars": 77,
+    "ownerRepo": "https://github.com/visualbam/Brackets-Stripper"
+  },
+  "brackets-theme-darktooth": {
+    "metadata": {
+      "name": "brackets-theme-darktooth",
+      "title": "Darktooth",
+      "description": "Port of the Emacs Darktooth theme to Brackets",
+      "homepage": "https://github.com/Poorchop/darktooth-theme-ports/tree/master/brackets-theme-darktooth",
+      "version": "0.1.0",
+      "author": {
+        "name": "Poorchop",
+        "url": "https://github.com/Poorchop"
+      },
+      "license": "MIT",
+      "theme": {
+        "file": "darktooth.less",
+        "dark": true
+      },
+      "keywords": [
+        "darktooth",
+        "theme",
+        "dark"
+      ],
+      "categories": [
+        "visual"
+      ]
+    },
+    "owner": "github:Poorchop",
+    "versions": [
+      {
+        "version": "0.1.0",
+        "published": "2015-06-18T06:56:18.322Z",
+        "downloads": 3794
+      }
+    ],
+    "totalDownloads": 3911,
+    "recent": {
+      "20180903": 3,
+      "20180904": 1,
+      "20180905": 1,
+      "20180907": 1,
+      "20180908": 1,
+      "20180909": 26,
+      "20180911": 4
+    },
+    "gihubStars": 22,
+    "ownerRepo": "https://github.com/Poorchop/darktooth-theme-ports/tree/master/brackets-theme-darktooth"
+  },
+  "80s-baby": {
+    "metadata": {
+      "title": "80's Baby",
+      "name": "80s-baby",
+      "description": "80's Baby Theme for Brackets. Inspired by Silkie's 80's Baby. A Brackets original.",
+      "version": "1.0.2",
+      "author": {
+        "name": "larz0",
+        "url": "https://github.com/larz0"
+      },
+      "homepage": "https://github.com/Brackets-Themes/80sBaby",
+      "repository": {
+        "type": "git",
+        "url": "git@github.com:Brackets-Themes/80sBaby.git"
+      },
+      "license": "MIT",
+      "engines": {
+        "brackets": ">=0.42.0"
+      },
+      "theme": {
+        "file": "80sbaby.css",
+        "dark": true
+      }
+    },
+    "owner": "github:larz0",
+    "versions": [
+      {
+        "version": "1.0.2",
+        "published": "2014-09-04T04:18:41.826Z",
+        "brackets": ">=0.42.0",
+        "downloads": 23843
+      }
+    ],
+    "totalDownloads": 25681,
+    "recent": {
+      "20180905": 21,
+      "20180906": 21,
+      "20180907": 13,
+      "20180908": 16,
+      "20180909": 239,
+      "20180910": 243,
+      "20180911": 24
+    },
+    "gihubStars": 19,
+    "ownerRepo": "https://github.com/Brackets-Themes/80sBaby"
+  },
+  "dracula": {
+    "metadata": {
+      "name": "dracula",
+      "title": "Dracula Official",
+      "description": "Dracula Syntax Theme. A dark theme for many editors, shells, and more.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Felipe Kautzmann",
+        "email": "felipe.kautzmann@gmail.com",
+        "url": "http://felipekm.github.io"
+      },
+      "homepage": "https://github.com/dracula/brackets",
+      "keywords": [
+        "theme"
+      ],
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git@github.com:dracula/brackets.git"
+      },
+      "bugs": {
+        "url": "https://github.com/dracula/brackets/issues"
+      },
+      "engines": {
+        "brackets": ">=1.0.0"
+      },
+      "theme": {
+        "file": "theme.css",
+        "dark": true
+      }
+    },
+    "owner": "github:felipekm",
+    "versions": [
+      {
+        "version": "1.0.0",
+        "published": "2017-03-06T00:53:30.155Z",
+        "brackets": ">=1.0.0",
+        "downloads": 19719
+      }
+    ],
+    "totalDownloads": 20718,
+    "recent": {
+      "20180905": 17,
+      "20180906": 27,
+      "20180907": 17,
+      "20180908": 22,
+      "20180909": 289,
+      "20180910": 290,
+      "20180911": 32
+    },
+    "gihubStars": 19,
+    "ownerRepo": "https://github.com/dracula/brackets"
+  },
+  "nord-brackets": {
+    "metadata": {
+      "name": "nord-brackets",
+      "title": "Nord",
+      "description": "An arctic, north-bluish clean and elegant Brackets theme.",
+      "version": "0.1.0",
+      "homepage": "https://github.com/arcticicestudio/nord-brackets",
+      "author": {
+        "name": "Arctic Ice Studio",
+        "email": "development@arcticicestudio.com",
+        "url": "http://arcticicestudio.com"
+      },
+      "license": "(Apache-2.0 AND CC-BY-SA-4.0)",
+      "engines": {
+        "brackets": ">=0.24.0"
+      },
+      "theme": {
+        "file": "nord-brackets.less",
+        "dark": true,
+        "addModeClass": true
+      },
+      "keywords": [
+        "arctic",
+        "north",
+        "bluish",
+        "clean",
+        "elegant"
+      ],
+      "devDependencies": {
+        "gulp": "^3.9.1",
+        "gulp-help": "^1.6.1",
+        "gulp-stylelint": "^3.9.0",
+        "stylelint-config-standard": "^16.0.0"
+      }
+    },
+    "owner": "github:arcticicestudio",
+    "versions": [
+      {
+        "version": "0.1.0",
+        "published": "2017-04-15T13:26:49.948Z",
+        "brackets": ">=0.24.0",
+        "downloads": 3949
+      }
+    ],
+    "totalDownloads": 4162,
+    "recent": {
+      "20180904": 2,
+      "20180905": 1,
+      "20180906": 4,
+      "20180907": 1,
+      "20180908": 4,
+      "20180910": 44,
+      "20180911": 4
+    },
+    "gihubStars": 19,
+    "ownerRepo": "https://github.com/arcticicestudio/nord-brackets"
+  },
+  "easy-dark": {
+    "metadata": {
+      "title": "Easy Dark",
+      "name": "easy-dark",
+      "description": "Dark theme that's just easy on your eyes",
+      "version": "2.0.4",
+      "author": {
+        "name": "Miguel Castillo",
+        "email": "mahchagnu@gmail.com"
+      },
+      "homepage": "https://github.com/Brackets-Themes/EasyDark",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/Brackets-Themes/EasyDark.git"
+      },
+      "engines": {
+        "brackets": ">=0.42.0"
+      },
+      "theme": {
+        "file": "main.less",
+        "dark": true
+      },
+      "screenshot": "screenshot.png"
+    },
+    "owner": "github:MiguelCastillo",
+    "versions": [
+      {
+        "version": "2.0.4",
+        "published": "2014-08-07T15:41:44.367Z",
+        "brackets": ">=0.42.0",
+        "downloads": 24801
+      }
+    ],
+    "totalDownloads": 27190,
+    "recent": {
+      "20180905": 6,
+      "20180906": 13,
+      "20180907": 11,
+      "20180908": 11,
+      "20180909": 188,
+      "20180910": 127,
+      "20180911": 35
+    },
+    "gihubStars": 18,
+    "ownerRepo": "https://github.com/Brackets-Themes/EasyDark"
+  },
+  "samaneyaghoobi.innovit": {
+    "metadata": {
+      "title": "Innovit",
+      "name": "samaneyaghoobi.innovit",
+      "description": "A dark-Innovit Syntax Theme that is really Friend to the Eyes.",
+      "version": "1.0.2",
+      "author": {
+        "name": "Samane Yaghoobi",
+        "url": "https://github.com/SamaneYaghoobi"
+      },
+      "homepage": "https://github.com/SamaneYaghoobi/Innovit",
+      "license": "MIT",
+      "engines": {
+        "brackets": ">=0.42.0"
+      },
+      "theme": {
+        "file": "innovit.css",
+        "dark": true
+      }
+    },
+    "owner": "github:SamaneYaghoobi",
+    "versions": [
+      {
+        "version": "1.0.2",
+        "published": "2017-10-17T08:21:32.706Z",
+        "brackets": ">=0.42.0",
+        "downloads": 5382
+      }
+    ],
+    "totalDownloads": 5779,
+    "recent": {
+      "20180905": 3,
+      "20180906": 4,
+      "20180907": 5,
+      "20180908": 3,
+      "20180909": 49,
+      "20180910": 95,
+      "20180911": 22
+    },
+    "gihubStars": 17,
+    "ownerRepo": "https://github.com/SamaneYaghoobi/Innovit"
+  },
+  "new-one-dark-theme": {
+    "metadata": {
+      "title": "New One Dark",
+      "name": "new-one-dark-theme",
+      "description": "Inspired by the One Dark Theme from Atom Editor",
+      "version": "1.2.1",
+      "author": {
+        "name": "moritzw1",
+        "url": "https://github.com/moritzw1"
+      },
+      "homepage": "https://github.com/moritzw1/one-dark-theme-for-brackets",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/moritzw1/one-dark-theme-for-brackets.git"
+      },
+      "license": "MIT",
+      "engines": {
+        "brackets": ">=1.1.0"
+      },
+      "theme": {
+        "file": "main.css",
+        "dark": true,
+        "addModeClass": true
+      }
+    },
+    "owner": "github:moritzw1",
+    "versions": [
+      {
+        "version": "1.2.1",
+        "published": "2016-02-22T14:48:13.302Z",
+        "brackets": ">=1.1.0",
+        "downloads": 24024
+      }
+    ],
+    "totalDownloads": 36717,
+    "recent": {
+      "20180905": 8,
+      "20180906": 12,
+      "20180907": 5,
+      "20180908": 16,
+      "20180909": 162,
+      "20180910": 149,
+      "20180911": 28
+    },
+    "gihubStars": 15,
+    "ownerRepo": "https://github.com/moritzw1/one-dark-theme-for-brackets"
+  },
+  "lion": {
+    "metadata": {
+      "title": "Lion",
+      "name": "lion",
+      "description": "Lion Theme for Brackets. Dark and minimal. A Brackets original.",
+      "version": "1.0.0",
+      "author": {
+        "name": "larz0",
+        "url": "https://github.com/larz0"
+      },
+      "homepage": "https://github.com/Brackets-Themes/Lion",
+      "repository": {
+        "type": "git",
+        "url": "git@github.com:Brackets-Themes/Lion.git"
+      },
+      "license": "MIT",
+      "engines": {
+        "brackets": ">=0.42.0"
+      },
+      "theme": {
+        "file": "lion.css",
+        "dark": true
+      }
+    },
+    "owner": "github:larz0",
+    "versions": [
+      {
+        "version": "1.0.0",
+        "published": "2014-08-11T14:43:12.654Z",
+        "brackets": ">=0.42.0",
+        "downloads": 36228
+      }
+    ],
+    "totalDownloads": 37650,
+    "recent": {
+      "20180905": 17,
+      "20180906": 24,
+      "20180907": 21,
+      "20180908": 22,
+      "20180909": 462,
+      "20180910": 285,
+      "20180911": 32
+    },
+    "gihubStars": 13,
+    "ownerRepo": "https://github.com/Brackets-Themes/Lion"
+  }
+}

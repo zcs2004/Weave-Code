@@ -1,0 +1,307 @@
+.weave-iap-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 1000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: rgba(10, 12, 18, 0.72);
+    backdrop-filter: blur(5px);
+}
+
+.weave-iap-backdrop[hidden] {
+    display: none;
+}
+
+.weave-iap-dialog {
+    width: min(680px, 100%);
+    max-height: min(760px, calc(100vh - 48px));
+    overflow: auto;
+    color: #edf1f7;
+    background: #1b1e26;
+    border: 1px solid #3b4050;
+    border-radius: 14px;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+}
+
+.weave-iap-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 20px 22px;
+}
+
+.weave-iap-header {
+    border-bottom: 1px solid #343946;
+}
+
+.weave-iap-header h2 {
+    margin: 0;
+    font-size: 22px;
+}
+
+.weave-iap-close {
+    min-width: 40px;
+    min-height: 40px;
+    color: #dbe1ec;
+    background: transparent;
+    border: 0;
+    border-radius: 8px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.weave-iap-content {
+    padding: 20px 22px;
+}
+
+.weave-iap-products {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.weave-iap-product {
+    display: flex;
+    flex-direction: column;
+    min-height: 210px;
+    padding: 18px;
+    background: #232733;
+    border: 1px solid #41485a;
+    border-radius: 12px;
+}
+
+.weave-iap-product-owned {
+    border-color: rgba(116, 98, 220, .45);
+    background: linear-gradient(145deg, #272a38, #222631);
+}
+
+.weave-iap-product h3 {
+    margin: 0 0 8px;
+    font-size: 18px;
+}
+
+.weave-iap-product p {
+    margin: 0 0 16px;
+    color: #b7becc;
+    line-height: 1.55;
+}
+
+.weave-iap-price {
+    margin-top: auto;
+    padding-bottom: 14px;
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 650;
+}
+
+.weave-iap-owned-reason {
+    margin: -4px 0 12px !important;
+    padding: 7px 9px;
+    border-radius: 7px;
+    color: #cfc8ff !important;
+    background: rgba(105, 84, 220, .13);
+    font-size: 12px;
+}
+
+.weave-iap-product button {
+    min-height: 44px;
+    padding: 10px 16px;
+    border: 0;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.weave-iap-product button {
+    color: #fff;
+    background: #2d7df4;
+    font-weight: 600;
+}
+
+.weave-iap-product button:hover {
+    background: #448df6;
+}
+
+.weave-iap-product button:disabled {
+    opacity: 0.55;
+    cursor: wait;
+}
+
+.weave-iap-product button[data-unavailable="true"] {
+    color: #d8d3f5;
+    background: #4a435f;
+    opacity: 1;
+    cursor: not-allowed;
+}
+
+.weave-iap-benefits {
+    margin-top: 16px;
+    padding: 16px 18px;
+    border: 1px solid rgba(116, 98, 220, .38);
+    border-radius: 12px;
+    background: linear-gradient(145deg, rgba(64, 53, 112, .24), rgba(35, 39, 51, .82));
+}
+
+.weave-iap-benefits h3 {
+    margin: 0 0 12px;
+    color: #f0edff;
+    font-size: 14px;
+    font-weight: 650;
+}
+
+.weave-iap-benefits ul {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px 18px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.weave-iap-benefits li {
+    position: relative;
+    padding-left: 18px;
+    color: #c8cfdb;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.weave-iap-benefits li::before {
+    position: absolute;
+    left: 0;
+    color: #a99cff;
+    content: "✓";
+    font-weight: 700;
+}
+
+.weave-iap-feedback {
+    min-height: 22px;
+    margin: 16px 0 0;
+    color: #c8cfdb;
+}
+
+.weave-iap-feedback[data-error="true"] {
+    color: #ff9a9a;
+}
+
+.weave-iap-note {
+    margin: 14px 0 0;
+    color: #939cac;
+    font-size: 12px;
+    line-height: 1.55;
+}
+
+.weave-iap-agreement {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 6px;
+    min-height: 44px;
+    margin-top: 10px;
+    color: #c8cfdb;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.weave-iap-agreement input {
+    width: 18px;
+    height: 18px;
+    margin: 0 2px 0 0;
+    accent-color: #2d7df4;
+    cursor: pointer;
+}
+
+.weave-iap-agreement input:disabled {
+    cursor: wait;
+}
+
+.weave-iap-agreement label {
+    margin: 0;
+    cursor: pointer;
+}
+
+.weave-iap-agreement a {
+    color: #79adff;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    cursor: pointer;
+}
+
+.weave-iap-agreement a:hover,
+.weave-iap-agreement a:focus-visible {
+    color: #a7c9ff;
+}
+
+.weave-iap-lifetime-notice-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 1000001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: rgba(8, 10, 15, 0.76);
+    backdrop-filter: blur(6px);
+}
+
+.weave-iap-lifetime-notice-backdrop[hidden] {
+    display: none;
+}
+
+.weave-iap-lifetime-notice {
+    width: min(460px, 100%);
+    padding: 24px;
+    color: #edf1f7;
+    background: #1f232d;
+    border: 1px solid #454c5e;
+    border-radius: 14px;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.48);
+}
+
+.weave-iap-lifetime-notice h3 {
+    margin: 0 0 14px;
+    font-size: 20px;
+}
+
+.weave-iap-lifetime-notice p {
+    margin: 0;
+    color: #c8cfdb;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.weave-iap-lifetime-notice-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 22px;
+}
+
+.weave-iap-lifetime-notice-actions button {
+    min-width: 96px;
+    min-height: 44px;
+    padding: 10px 18px;
+    color: #fff;
+    background: #2d7df4;
+    border: 0;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.weave-iap-lifetime-notice-actions button:hover,
+.weave-iap-lifetime-notice-actions button:focus-visible {
+    background: #448df6;
+}
+
+@media (max-width: 620px) {
+    .weave-iap-products {
+        grid-template-columns: 1fr;
+    }
+
+    .weave-iap-benefits ul {
+        grid-template-columns: 1fr;
+    }
+}
